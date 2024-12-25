@@ -1,0 +1,9 @@
+/**
+ * Common block styles
+ */
+.editor-styles-wrapper {
+	/**
+	 * Base
+	 */
+	@apply antialiased font-sans;
+}

@@ -20,8 +20,8 @@
       "output": "assets/js"
     },
     "tailwind": {
-      "src": "src/tailwind/tailwind.css",
-      "dist": "assets/css/tailwind.css"
+      "src": "src/tailwind/*.css",
+      "dist": "assets/css/"
     }
   },
   "scripts": {
@@ -31,7 +31,7 @@
     "build": "npm run clean && concurrently npm:imagemin npm:css npm:vite",
     "css": "concurrently npm:tailwind",
     "imagemin": "cross-conf-env node imagemin.mjs \"$npm_package_config_image_src/**/*\" $npm_package_config_image_dist",
-    "tailwind": "cross-conf-env tailwindcss -i $npm_package_config_tailwind_src -o $npm_package_config_tailwind_dist --minify",
+    "tailwind": "cross-conf-env postcss $npm_package_config_tailwind_src -d $npm_package_config_tailwind_dist",
     "vite": "vite build",
     "watch:imagemin": "cross-conf-env onchange \"$npm_package_config_image_src/**/*\" -e \".DS_Store\" -- npm run imagemin",
     "watch:tailwind": "npm run tailwind -- --watch",
