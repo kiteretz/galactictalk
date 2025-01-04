@@ -155,6 +155,58 @@ get_header();
 			width="1600" height="1591" alt=""
 		>
 	</div>
+	<!-- News area -->
+	<?php
+	$news = get_posts(
+		array( 'post_type' => 'post' )
+	);
+	if ( $news ) :
+		?>
+		<div class="splide js-news-carousel z-20 mx-auto -mt-[6vw] flex flex-col ~/lg:~gap-28/40 md:max-w-768 lg:absolute lg:right-16 lg:mt-0 lg:max-w-400 lg:gap-24 lg:~lg/xl:~bottom-0/152 2xl:max-w-[26vw] 2xl:gap-[1.75vw]">
+			<div class="flex items-center justify-between gap-24 px-16 drop-shadow-[0_0_1rem_07030E] lg:justify-end lg:px-12 2xl:gap-[1.5vw]">
+				<h2 class="uppercase leading-none ~text-28/40 gradient-text 2xl:text-[2.5vw]">News</h2>
+				<div class="splide__arrows relative flex justify-end gap-16 2xl:gap-[1vw] disabled:[&_button]:opacity-50">
+					<?php
+					icon_button(
+						'chevron-left',
+						array(
+							'class'      => 'splide__arrow splide__arrow--prev',
+							'label'      => '前のニュース',
+							'type'       => 'button',
+							'icon_class' => '2xl:before:size-[2vw]',
+						)
+					);
+					icon_button(
+						'chevron-right',
+						array(
+							'class'      => 'splide__arrow splide__arrow--next',
+							'label'      => '次のニュース',
+							'type'       => 'button',
+							'icon_class' => '2xl:before:size-[2vw]',
+						)
+					);
+					?>
+				</div>
+			</div>
+			<div class="splide__track overflow-visible lg:translate-x-28">
+				<ul class="splide__list">
+					<?php foreach ( $news as $index => $_post ) : ?>
+						<li class="splide__slide -my-4 flex w-full justify-center transition-[transform] duration-300 ease-in-out even:[rotate:4deg]" style="z-index: <?php echo esc_attr( count( $news ) - $index ); ?>">
+							<a href="<?php echo esc_url( get_the_permalink( $_post ) ); ?>" class="my-4 flex h-full max-h-100 w-[calc(100%-calc(var(--gutter)*2))] overflow-hidden rounded-16 bg-white text-brand-900 shadow ~gap-4/8 2xl:my-[0.25vw] 2xl:rounded-[1vw]">
+								<div class="basis-1/3">
+									<img class="h-full w-full object-cover" src="<?php echo esc_url( get_the_post_thumbnail_url( $_post, 'full' ) ); ?>" alt="" width="120" height="100">
+								</div>
+								<div class="flex flex-col basis-2/3 ~px-4/8 ~py-12/16 tracking-tighter 2xl:px-[0.5vw] 2xl:py-[1vw]">
+									<time datetime="<?php echo esc_html( get_the_date( 'Y.m.d', $_post ) ); ?>" class="min-w-0 font-barlow ~lg/2xl:~text-12/13 2xl:text-[0.8125vw]"><?php echo esc_html( get_the_date( 'Y.m.d', $_post ) ); ?></time>
+									<div class="line-clamp-2 font-medium leading-normal 2xl:text-[1vw]"><?php echo esc_html( $_post->post_title ); ?></div>
+								</div>
+							</a>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+		</div>
+	<?php endif; ?>
 </section>
 
 <?php
