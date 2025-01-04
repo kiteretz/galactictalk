@@ -261,12 +261,12 @@ module.exports = {
             '-webkit-text-stroke':
               '1px var(--stroke-color,theme("colors.brand.400"))',
             'text-stroke': '1px var(--stroke-color,theme("colors.brand.400"))',
-            '@apply font-barlow font-semibold uppercase text-transparent': '',
+            '@apply font-barlow font-bold uppercase text-transparent': '',
           },
           '.gradient-text': {
             '-webkit-background-clip': 'text',
             '-webkit-text-fill-color': 'transparent',
-            '@apply bg-gradient-to-b from-[#D499FF] to-[#771FB6] to-100% bg-clip-text font-barlow font-semibold uppercase tracking-[-0.02em] text-transparent':
+            '@apply bg-gradient-to-b from-[#EA98FF] to-[#A733FF] to-100% bg-clip-text font-barlow font-bold uppercase tracking-[-0.02em] text-transparent':
               '',
           },
         });
