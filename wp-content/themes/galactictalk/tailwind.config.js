@@ -28,6 +28,12 @@ module.exports = {
     ],
     extract,
   },
+  safelist: [
+    {
+      pattern: /^icon-(.*)$/,
+      variants: ['before'],
+    },
+  ],
   theme: {
     borderWidth: {
       DEFAULT: '.0625rem',
