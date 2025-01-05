@@ -483,5 +483,51 @@ if ( $tutors ) :
 	</section>
 <?php endif; ?>
 
+<!-- Testimonials section -->
+<?php
+$testimonials = get_posts(
+	array(
+		'post_type'   => 'testimonial',
+		'numberposts' => 6,
+	)
+);
+if ( $testimonials ) :
+	?>
+	<section class="splide js-testimonial-carousel relative grid place-items-center ~gap-40/80">
+		<hgroup class="grid justify-items-center gap-8 text-center ~px-24/32">
+			<h2 class="uppercase leading-none ~text-40/120 gradient-text">Testimonials</h2>
+			<p class="inline-block bg-brand-500 font-bold ~rounded-4/8 ~px-12/16 ~py-4/8">受講生の声</p>
+		</hgroup>
+		<div class="splide__track w-full">
+			<ul class="splide__list">
+				<?php
+				$bg_colors = array( '#F748A2', '#00AF83', '#E9A124', '#F748A2', '#6E00C2', '#1B97D0' );
+				foreach ( $testimonials as $index => $_post ) :
+					?>
+					<li class="splide__slide flex h-320 odd:items-end lg:h-272" style="--bg-color: <?php echo esc_attr( $bg_colors[ $index % count( $bg_colors ) ] ); ?>">
+						<div class="flex aspect-[264/280] h-280 flex-col items-center gap-16 rounded-24 bg-[--bg-color] p-16 lg:aspect-[352/232] lg:h-232 lg:flex-row lg:items-start lg:gap-24 lg:p-24">
+							<?php if ( has_post_thumbnail( $_post ) ) : ?>
+								<div class="size-64 shrink-0 overflow-hidden rounded-full lg:size-90">
+									<?php echo get_the_post_thumbnail( $_post, 'thumbnail', array( 'class' => 'h-full w-full object-cover' ) ); ?>
+								</div>
+							<?php endif; ?>
+							<div class="grid h-full grid-rows-[auto_1fr] gap-12 lg:gap-16">
+								<h3 class="text-16 font-black leading-normal lg:text-18"><?php echo esc_html( $_post->post_title ); ?></h3>
+								<p class="line-clamp-4"><?php echo esc_html( wp_strip_all_tags( get_the_content( null, false, $_post ) ) ); ?></p>
+							</div>
+						</div>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+		<?php
+		button(
+			'受講生の声の一覧を見る',
+			array( 'href' => esc_url( home_url( '/testimonial/' ) ) )
+		);
+		?>
+	</section>
+<?php endif; ?>
+
 <?php
 get_footer();

@@ -40,3 +40,11 @@ document.querySelectorAll<HTMLElement>('.js-tutor-carousel').forEach((el) => {
     },
   }).mount();
 });
+
+document
+  .querySelectorAll<HTMLElement>('.js-testimonial-carousel')
+  .forEach((el) => {
+    new Splide(el, {
+      gap: '1rem',
+    }).mount();
+  });
