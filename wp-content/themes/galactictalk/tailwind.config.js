@@ -176,6 +176,14 @@ module.exports = {
       fontFeatureSettings: {
         palt: '"palt"',
       },
+      keyframes: {
+        marquee: {
+          to: { translate: '-100%' },
+        },
+      },
+      animation: {
+        marquee: 'marquee 30s linear infinite',
+      },
     },
   },
   plugins: [
@@ -273,6 +281,12 @@ module.exports = {
             '-webkit-background-clip': 'text',
             '-webkit-text-fill-color': 'transparent',
             '@apply bg-gradient-to-b from-[#EA98FF] to-[#A733FF] to-100% bg-clip-text font-barlow font-bold uppercase tracking-[-0.02em] text-transparent':
+              '',
+          },
+          '.gradient-stroke-text': {
+            '-webkit-text-stroke': '2px transparent',
+            'text-stroke': '2px transparent',
+            '@apply bg-gradient-to-b from-[#EA98FF] to-[#A733FF] to-100% bg-clip-text font-barlow font-bold uppercase tracking-[-0.02em] text-brand-950':
               '',
           },
         });
