@@ -209,5 +209,171 @@ get_header();
 	<?php endif; ?>
 </section>
 
+<!-- Features section -->
+<section class="relative mt-40 lg:~lg:~-mt-0/144 2xl:mt-[-9vw]">
+	<div class="z-10 grid place-items-center ~gap-40/72 lg:pt-160">
+		<hgroup class="grid justify-items-center gap-8 text-center ~px-24/32 ~/xs:~translate-y-280/380 xs:~sm:~translate-y-380/480 lg:translate-y-0">
+			<h2 class="uppercase leading-none ~text-40/120 gradient-text">Features</h2>
+			<p class="inline-block bg-brand-500 font-bold ~rounded-4/8 ~px-12/16 ~py-4/8">ギャラクティックトークの特徴</p>
+		</hgroup>
+		<div class="grid ~gap-40/80">
+			<div class="flex flex-col-reverse lg:gap-40 lg:grid lg:[&>*]:col-span-full lg:[&>*]:row-span-full">
+				<!-- Introduction -->
+				<div class="grid gap-gutter-1.5 lg:gap-8">
+					<div class="grid place-items-center gap-8 lg:mx-auto lg:w-fit lg:grid-cols-[repeat(2,auto)] lg:content-end">
+						<span class="relative">
+							<span class="absolute -right-64 -top-24 lg:-top-44 grid rotate-[15deg] place-items-center rounded-full bg-[#F748A1] font-black ~text-18/24 ~/lg:~size-100/120 lg:-right-48">地球初！</span>
+							<span class="relative -mt-16 inline-block !font-barlow-condensed !font-semibold leading-none gradient-text ~/2xl:~text-[12.5rem]/[18.75rem]">100</span>
+						</span>
+						<span class="grid gap-8 font-black leading-none ~/2xl:~text-32/48 lg:self-end lg:justify-self-start lg:pb-24">
+							<span>以上の星の</span>
+							<span>伝わる言語</span>
+							<span>が学べる</span>
+						</span>
+					</div>
+					<div class="grid text-center ~text-18/24 font-bold lg:content-start">
+						<span>教材とカリキュラムが試せる！</span>
+						<span>無料トライアルでぜひギャラクティックトークを</span>
+						<span>お得に試してみてください。</span>
+					</div>
+				</div>
+				<!-- Images -->
+				<div class="pointer-events-none grid h-full w-full max-w-480 mx-auto [&>*]:col-span-full [&>*]:row-span-full">
+					<!-- Arched images -->
+					<div class="grid grid-cols-2 place-items-center px-18 ~/lg:~-translate-y-152/240 ~/lg:~gap-10/24 lg:translate-y-112">
+						<?php
+						foreach ( array(
+							array(
+								'class'  => 'lg:-translate-x-744 lg:-translate-y-192',
+								'src'    => 'features-1.webp',
+								'width'  => 235,
+								'height' => 139,
+							),
+							array(
+								'class'  => 'lg:translate-x-472 lg:-translate-y-344',
+								'src'    => 'features-2.webp',
+								'width'  => 252,
+								'height' => 87,
+							),
+							array(
+								'class'  => 'lg:translate-x-768 lg:-translate-y-192',
+								'src'    => 'features-3.webp',
+								'width'  => 252,
+								'height' => 87,
+							),
+						) as $image ) :
+							?>
+							<div class="<?php cx( 'aspect-[265/457] w-full overflow-hidden rounded-t-full last:hidden lg:absolute lg:last:block lg:~lg/2xl:~w-200/268', $image['class'] ); ?>">
+								<img
+									class="h-full w-full object-cover ~rounded-[0.5rem]/[0.75rem]"
+									src="<?php echo esc_url( get_theme_file_uri( '/assets/images/' . $image['src'] ) ); ?>"
+									width="<?php echo esc_attr( $image['width'] ?? 160 ); ?>"
+									height="<?php echo esc_attr( $image['height'] ?? 160 ); ?>"
+									alt=""
+								>
+							</div>
+						<?php endforeach; ?>
+					</div>
+					<!-- Headphone and crystals -->
+					<div class="hidden lg:grid place-items-center lg:translate-y-136">
+						<?php
+						foreach ( array(
+							array(
+								'class'  => 'lg:rotate-[-16deg] lg:~lg/2xl:~w-200/232 lg:-translate-x-464 lg:-translate-y-496',
+								'src'    => 'headphone.webp',
+								'width'  => 103,
+								'height' => 160,
+							),
+							array(
+								'class'  => 'lg:~lg/2xl:~w-72/84 lg:rotate-[19deg] lg:-translate-x-384 lg:-translate-y-224',
+								'src'    => 'crystal-yellow.webp',
+								'width'  => 103,
+								'height' => 160,
+							),
+							array(
+								'class'  => 'lg:~lg/2xl:~w-24/36 lg:rotate-[-24deg] lg:-translate-x-536 lg:-translate-y-208',
+								'src'    => 'crystal-red.webp',
+								'width'  => 83,
+								'height' => 145,
+							),
+							array(
+								'class'  => 'lg:~lg/2xl:~w-56/64 lg:rotate-[-21deg] lg:-translate-x-464 lg:-translate-y-48',
+								'src'    => 'crystal-purple.webp',
+								'width'  => 68,
+								'height' => 110,
+							),
+							array(
+								'class'  => 'lg:~lg/2xl:~w-40/52 lg:rotate-[35deg] lg:-translate-x-512 lg:-translate-y-176',
+								'src'    => 'crystal-green.webp',
+								'width'  => 62,
+								'height' => 114,
+							),
+						) as $image ) :
+							?>
+							<img
+								class="<?php cx( 'absolute', $image['class'] ); ?>"
+								src="<?php echo esc_url( get_theme_file_uri( '/assets/images/' . $image['src'] ) ); ?>"
+								width="<?php echo esc_attr( $image['width'] ?? 160 ); ?>"
+								height="<?php echo esc_attr( $image['height'] ?? 160 ); ?>"
+								alt=""
+							>
+						<?php endforeach; ?>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Content -->
+		<div class="container grid ~gap-24/56 lg:grid-cols-3">
+			<?php
+			$features = array(
+				array(
+					'image'   => array(
+						'src' => 'features-4.webp',
+					),
+					'title'   => '言語だけでなく文化も学べるネイティブ講師',
+					'content' => 'ギャラクティックトークの講師は、全員その星生まれのネイティブ。言語だけでなく、その星で暮らす人からリアルな文化や風習を学べることも魅力です。',
+				),
+				array(
+					'image'   => array(
+						'src' => 'features-5.webp',
+					),
+					'title'   => 'さまざまな文化に出会える、交流プログラム',
+					'content' => '様々な惑星からの学習者同士が交流できるオンラインイベントを定期的に開催。一緒にアクティビティを楽しんだり、ひとりで参加しても楽しめる企画をご用意しています。',
+				),
+				array(
+					'image'   => array(
+						'src' => 'features-6.webp',
+					),
+					'title'   => '忙しくても、30分で学べるカリキュラム',
+					'content' => 'ちょっとした移動時間でも学べる、30分から取り組めるカリキュラムと専用デバイスで、仕事や学業と並行して無理なく学習を継続することができます。',
+				),
+			);
+
+			foreach ( $features as $feature ) :
+				?>
+				<div class="grid place-items-center gap-24 px-gutter-1.5 tracking-[-0.04em] auto-rows-min lg:px-0">
+					<img
+						class="w-[72%] lg:w-[80%]"
+						src="<?php echo esc_url( get_theme_file_uri( '/assets/images/' . $feature['image']['src'] ) ); ?>"
+						alt=""
+						width="280"
+						height="309"
+					>
+					<div class="grid place-items-center ~gap-16/24">
+						<div class="grid gap-16">
+							<h3 class="text-center font-black ~text-24/32 leading-normal"><?php echo esc_html( $feature['title'] ); ?></h3>
+							<p class="leading-relaxed"><?php echo esc_html( $feature['content'] ); ?></p>
+						</div>
+					</div>
+				</div>
+			<?php endforeach; ?>
+		</div>
+	</div>
+</section>
+
+<section class="col-10 -mt-40 mx-gutter lg:mx-auto">
+	<?php get_template_part( 'parts/button-cta' ); ?>
+</section>
+
 <?php
 get_footer();
