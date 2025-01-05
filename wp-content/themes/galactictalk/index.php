@@ -642,5 +642,65 @@ if ( $testimonials ) :
 	<?php endfor; ?>
 </section>
 
+<!-- Magazine section -->
+<?php
+$magazine = get_posts(
+	array(
+		'post_type'   => 'magazine',
+		'numberposts' => 4,
+	)
+);
+
+if ( $magazine ) :
+	?>
+	<section class="splide js-magazine-carousel relative grid ~gap-40/80 lg:px-0">
+		<hgroup class="grid justify-items-center gap-8 text-center ~px-24/32">
+			<h2 class="uppercase leading-none ~text-40/120 gradient-text">Magazine</h2>
+			<p class="inline-block bg-brand-500 font-bold ~rounded-4/8 ~px-12/16 ~py-4/8">マガジン</p>
+		</hgroup>
+		<div class="splide__track -my-64 py-64 xl:-mb-80 xl:grid xl:justify-items-center">
+			<ul class="splide__list max-w-container xl:!flex xl:flex-row xl:flex-wrap">
+				<?php
+				foreach ( $magazine as $index => $_post ) :
+					if ( 0 === $index ) :
+						?>
+						<li class="splide__slide min-w-264 basis-1/3 xl:mb-120 xl:basis-full xl:px-29">
+							<?php
+							get_template_part(
+								'parts/magazine-card',
+								null,
+								array(
+									'post'     => $_post,
+									'featured' => true,
+								)
+							);
+							?>
+						</li>
+					<?php else : ?>
+						<li class="splide__slide min-w-264 basis-1/3 xl:px-29">
+							<?php
+							get_template_part(
+								'parts/magazine-card',
+								null,
+								array( 'post' => $_post )
+							);
+							?>
+						</li>
+					<?php endif; ?>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+		<?php
+		button(
+			'マガジン一覧を見る',
+			array(
+				'href'  => esc_url( home_url( '/magazine/' ) ),
+				'class' => 'mx-auto',
+			)
+		);
+		?>
+	</section>
+<?php endif; ?>
+
 <?php
 get_footer();

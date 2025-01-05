@@ -48,3 +48,16 @@ document
       gap: '1rem',
     }).mount();
   });
+
+document
+  .querySelectorAll<HTMLElement>('.js-magazine-carousel')
+  .forEach((el) => {
+    new Splide(el, {
+      gap: '2.5rem',
+      breakpoints: {
+        1280: {
+          destroy: true,
+        },
+      },
+    }).mount();
+  });
