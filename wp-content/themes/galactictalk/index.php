@@ -590,5 +590,9 @@ if ( $testimonials ) :
 	</div>
 </section>
 
+<section class="col-10 mx-gutter lg:mx-auto">
+	<?php get_template_part( 'parts/button-cta' ); ?>
+</section>
+
 <?php
 get_footer();
