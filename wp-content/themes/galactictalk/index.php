@@ -529,5 +529,66 @@ if ( $testimonials ) :
 	</section>
 <?php endif; ?>
 
+<!-- Plan & pricing section -->
+<section class="container grid place-items-center gap-40 px-24 lg:gap-80">
+	<hgroup class="grid justify-items-center gap-8 text-center ~px-24/32">
+		<h2 class="uppercase leading-none ~text-40/120 gradient-text">Plans & Pricing</h2>
+		<p class="inline-block bg-brand-500 font-bold ~rounded-4/8 ~px-12/16 ~py-4/8">料金プラン</p>
+	</hgroup>
+	<div class="grid ~gap-24/40">
+		<div class="grid gap-20 lg:grid-cols-3 xl:gap-32">
+			<?php
+			$price_cards = array(
+				array(
+					'title'       => 'BASIC',
+					'title_ja'    => 'ベーシックプラン',
+					'description' => '気軽に始められる',
+					'price'       => 15000,
+					'features'    => array(
+						'language' => '地球語に特化した基本的な学習プラン',
+						'level'    => '初めて言語学習を始める方向け',
+						'benefits' => '基本的なサポート体制',
+					),
+					'background'  => '#00AF92',
+				),
+				array(
+					'title'       => 'STANDARD',
+					'title_ja'    => 'スタンダードプラン',
+					'description' => 'しっかりと学べて人気No.1',
+					'price'       => 25000,
+					'features'    => array(
+						'language' => '地球語と異星語のバランスの取れた学習',
+						'level'    => '地球語と異星語のバランスの取れた学習',
+						'benefits' => '充実したサポートと文化交流の機会',
+					),
+					'background'  => '#9100FF',
+				),
+				array(
+					'title'       => 'PREMIUM',
+					'title_ja'    => 'プレミアムプラン',
+					'description' => '資格取得やビジネス用途にも',
+					'price'       => 40000,
+					'features'    => array(
+						'language' => '全言語コースへのフルアクセス',
+						'level'    => '最新の学習テクノロジーの利用',
+						'benefits' => 'プレミアム特典と体験プログラム',
+					),
+					'background'  => '#F78324',
+				),
+			);
+
+			foreach ( $price_cards as $card ) {
+				get_template_part(
+					'parts/price-card',
+					null,
+					$card
+				);
+			}
+			?>
+		</div>
+		<p class="text-center">各プランは月額制で、いつでもアップグレードが可能です。また、法人向けの特別プランやグループ割引なども用意しています。</p>
+	</div>
+</section>
+
 <?php
 get_footer();
