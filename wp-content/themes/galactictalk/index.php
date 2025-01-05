@@ -702,5 +702,48 @@ if ( $magazine ) :
 	</section>
 <?php endif; ?>
 
+<!-- FAQ section -->
+<?php
+$faqs = get_posts(
+	array( 'post_type' => 'faq' )
+);
+
+if ( $faqs ) :
+	?>
+	<section class="w-col-10 mx-auto grid place-items-center gap-40 lg:gap-80">
+		<hgroup class="grid justify-items-center gap-8 text-center ~px-24/32">
+		<h2 class="uppercase leading-none ~text-40/120 gradient-text">FAQ</h2>
+			<p class="inline-block bg-brand-500 font-bold ~rounded-4/8 ~px-12/16 ~py-4/8">よくあるご質問</p>
+		</hgroup>
+		<div class="grid">
+		<?php foreach ( $faqs as $_post ) : ?>
+			<div class="js-accordion group/button grid border-b-px border-brand-400" aria-expanded="false">
+				<button class="js-accordion-trigger flex w-full items-center justify-between gap-24 py-20 font-black lg:py-30">
+					<span class="flex items-center gap-24 text-left ~text-16/18 before:-translate-y-4 before:text-40 before:leading-none before:content-['Q'] before:gradient-text"><?php echo esc_html( $_post->post_title ); ?></span>
+					<span class="after:icon-chevron-down grid size-24 shrink-0 place-items-center transition-transform duration-300 after:text-brand-300">
+					</span>
+				</button>
+				<div class="grid grid-rows-[1fr] overflow-hidden font-semibold transition-all duration-300 aria-hidden:grid-rows-[0fr]" aria-hidden="true">
+					<div class="min-h-0">
+						<div class="flex gap-24 pb-28 lg:pr-48 lg:pb-40 before:-translate-y-4 before:text-40 before:leading-none before:content-['A'] before:gradient-text">
+							<p class="mt-4"><?php echo esc_html( wp_strip_all_tags( get_the_content( null, false, $_post ) ) ); ?></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		<?php endforeach; ?>
+	</div>
+	<?php
+	button(
+		'よくあるご質問の一覧を見る',
+		array(
+			'href'  => esc_url( home_url( '/faq/' ) ),
+			'class' => 'mx-auto',
+		)
+	);
+	?>
+	</section>
+<?php endif; ?>
+
 <?php
 get_footer();
