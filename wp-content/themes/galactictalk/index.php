@@ -443,5 +443,45 @@ if ( $courses ) :
 	</section>
 <?php endif; ?>
 
+<!-- Tutors section -->
+<?php
+$tutors = get_posts(
+	array( 'post_type' => 'tutor' )
+);
+
+if ( $tutors ) :
+	?>
+	<section class="splide js-tutor-carousel grid ~gap-40/80">
+		<hgroup class="grid justify-items-center gap-8 text-center ~px-24/32">
+			<h2 class="uppercase leading-none ~text-40/120 gradient-text">Popular Tutors</h2>
+			<p class="inline-block bg-brand-500 font-bold ~rounded-4/8 ~px-12/16 ~py-4/8">人気講師</p>
+		</hgroup>
+		<div class="splide__track -my-64 py-64 xl:grid xl:justify-items-center">
+			<ul class="splide__list flex-row xl:!flex xl:max-w-container xl:flex-wrap xl:justify-center xl:gap-x-32 xl:gap-y-48">
+				<?php foreach ( $tutors as $_post ) : ?>
+					<li class="splide__slide">
+						<?php
+						get_template_part(
+							'parts/tutor-card',
+							null,
+							array( 'post' => $_post )
+						);
+						?>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+		<?php
+		button(
+			'講師の一覧を見る',
+			array(
+				'href'  => esc_url( home_url( '/tutor/' ) ),
+				'class' => 'mx-auto',
+			)
+		);
+		?>
+	</section>
+<?php endif; ?>
+
 <?php
 get_footer();

@@ -27,3 +27,16 @@ document.querySelectorAll<HTMLElement>('.js-course-carousel').forEach((el) => {
     },
   }).mount();
 });
+
+document.querySelectorAll<HTMLElement>('.js-tutor-carousel').forEach((el) => {
+  new Splide(el, {
+    type: 'slide',
+    padding: '3.625rem',
+    gap: 'var(--gutter)',
+    breakpoints: {
+      1280: {
+        destroy: true,
+      },
+    },
+  }).mount();
+});
