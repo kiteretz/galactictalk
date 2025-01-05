@@ -745,5 +745,30 @@ if ( $faqs ) :
 	</section>
 <?php endif; ?>
 
+<section class="col-10 mx-gutter lg:mx-auto">
+	<?php get_template_part( 'parts/button-cta' ); ?>
+</section>
+
+<!-- Halos (background) -->
+<div class="absolute inset-0 -z-10 grid place-items-center mix-blend-screen overflow-hidden w-[calc(var(--cw)*100)]">
+	<?php
+	foreach ( array(
+		'w-960 top-[119rem] -left-672 lg:w-[140vw] lg:top-[143vw] lg:left-[-50vw]',
+		'w-960 top-[256rem] -left-144 lg:w-[120vw] lg:top-[191vw] lg:left-[11vw]',
+		'w-960 top-[392rem] -left-620 lg:w-[120vw] lg:top-[318vw] lg:left-[-28vw]',
+		'hidden lg:block lg:w-[102vw] lg:top-[394vw] lg:left-[37vw]',
+		'w-960 top-[473rem] -left-176 lg:w-[130vw] lg:top-[515vw] lg:left-[-32vw]',
+	) as $classes ) :
+		?>
+		<img
+			class="<?php cx( 'absolute mix-blend-screen h-auto max-w-none', $classes ); ?>"
+			src="<?php echo esc_url( get_theme_file_uri( '/assets/images/halo.webp' ) ); ?>"
+			alt=""
+			width="800"
+			height="800"
+		>
+	<?php endforeach; ?>
+</div>
+
 <?php
 get_footer();
