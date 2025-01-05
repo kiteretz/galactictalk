@@ -231,7 +231,7 @@ get_header();
 							<span>が学べる</span>
 						</span>
 					</div>
-					<div class="grid text-center ~text-18/24 font-bold lg:content-start">
+					<div class="grid px-24 text-center font-bold ~text-18/24 lg:content-start">
 						<span>教材とカリキュラムが試せる！</span>
 						<span>無料トライアルでぜひギャラクティックトークを</span>
 						<span>お得に試してみてください。</span>
