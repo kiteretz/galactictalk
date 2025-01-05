@@ -40,7 +40,15 @@ add_action(
 				'menu_name'     => '受講生の声',
 				'menu_icon'     => 'dashicons-microphone',
 			),
+			array(
+				'slug'          => 'faq',
+				'name'          => 'FAQ',
+				'singular_name' => 'FAQ',
+				'menu_name'     => 'FAQ',
+				'menu_icon'     => 'dashicons-format-chat',
+			),
 		);
+
 		foreach ( $post_types as $post_type ) {
 			$slug                = $post_type['slug'];
 			$name                = $post_type['name'];
