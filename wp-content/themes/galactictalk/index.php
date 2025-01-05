@@ -594,5 +594,53 @@ if ( $testimonials ) :
 	<?php get_template_part( 'parts/button-cta' ); ?>
 </section>
 
+<!-- Marquee section -->
+<section class="flex *:animate-marquee *:shrink-0">
+	<?php for ( $i = 0; $i < 3; $i++ ) : ?>
+		<div class="flex flex-nowrap ~text-64/80 uppercase leading-none tracking-[-0.02em] stroke-text">
+			<?php
+			foreach (
+				array(
+					array(
+						'text'        => 'Binary Code',
+						'src'         => 'marquee-3.webp',
+						'image_class' => 'mx-8',
+					),
+					array(
+						'text' => 'Terralinga',
+						'src'  => 'marquee-2.webp',
+					),
+					array(
+						'text' => 'Zorbish',
+						'src'  => 'marquee-1.webp',
+					),
+					array(
+						'text'        => 'Crystal Tone',
+						'src'         => 'marquee-4.webp',
+						'image_class' => 'w-66',
+					),
+					array(
+						'text'        => 'Psychic Wave',
+						'src'         => 'marquee-5.webp',
+						'image_class' => 'w-66',
+					),
+				)
+				as $item ) :
+				?>
+				<div class="flex shrink-0 items-center font-barlow font-bold">
+					<p class="gradient-stroke-text"><?php echo esc_html( $item['text'] ); ?></p>
+					<img
+						class="<?php cx( $item['image_class'] ?? '', 'mx-24' ); ?>"
+						src="<?php echo esc_url( get_theme_file_uri( '/assets/images/' . $item['src'] ) ); ?>"
+						alt=""
+						width="140"
+						height="140"
+					>
+				</div>
+			<?php endforeach; ?>
+		</div>
+	<?php endfor; ?>
+</section>
+
 <?php
 get_footer();
