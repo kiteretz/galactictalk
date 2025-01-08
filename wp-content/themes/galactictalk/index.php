@@ -158,7 +158,10 @@ get_header();
 	<!-- News area -->
 	<?php
 	$news = get_posts(
-		array( 'post_type' => 'post' )
+		array(
+			'post_type'   => 'post',
+			'numberposts' => 5,
+		)
 	);
 	if ( $news ) :
 		?>
@@ -378,7 +381,10 @@ get_header();
 <!-- Courses section -->
 <?php
 $courses = get_posts(
-	array( 'post_type' => 'course' )
+	array(
+		'post_type'   => 'course',
+		'numberposts' => 5,
+	)
 );
 
 if ( $courses ) :
@@ -446,7 +452,10 @@ if ( $courses ) :
 <!-- Tutors section -->
 <?php
 $tutors = get_posts(
-	array( 'post_type' => 'tutor' )
+	array(
+		'post_type'   => 'tutor',
+		'numberposts' => 5,
+	)
 );
 
 if ( $tutors ) :
