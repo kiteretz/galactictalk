@@ -1,0 +1,226 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "appearanceTools": true,
+    "layout": {
+      "contentSize": "70.1875rem"
+    },
+    "useRootPaddingAwareAlignments": true,
+    "spacing": {
+      "defaultSpacingSizes": false,
+      "spacingSizes": [
+        {
+          "size": "calc(var(--gutter) * 0.5)",
+          "slug": "50",
+          "name": "50"
+        },
+        {
+          "size": "calc(var(--gutter) * 0.75)",
+          "slug": "75",
+          "name": "75"
+        },
+        {
+          "size": "var(--gutter)",
+          "slug": "100",
+          "name": "100"
+        },
+        {
+          "size": "calc(var(--gutter) * 1.5)",
+          "slug": "150",
+          "name": "150"
+        },
+        {
+          "size": "calc(var(--gutter) * 2)",
+          "slug": "200",
+          "name": "200"
+        },
+        {
+          "size": "calc(var(--gutter) * 2.5)",
+          "slug": "250",
+          "name": "250"
+        },
+        {
+          "size": "calc(var(--gutter) * 3)",
+          "slug": "300",
+          "name": "300"
+        }
+      ]
+    },
+    "color": {
+      "defaultPalette": false,
+      "defaultGradients": false,
+      "custom": false,
+      "customGradient": false,
+      "palette": [
+        {
+          "slug": "black",
+          "color": "#000000",
+          "name": "黒"
+        },
+        {
+          "slug": "white",
+          "color": "#ffffff",
+          "name": "白"
+        },
+        {
+          "slug": "pink",
+          "color": "#ff3aa0",
+          "name": "ピンク"
+        },
+        {
+          "slug": "orange",
+          "color": "#f78324",
+          "name": "オレンジ"
+        },
+        {
+          "slug": "green",
+          "color": "#00af92",
+          "name": "緑"
+        },
+        {
+          "slug": "blue",
+          "color": "#0095ff",
+          "name": "水色"
+        },
+        {
+          "slug": "brand-600",
+          "color": "#9100ff",
+          "name": "ブランドカラー600"
+        },
+        {
+          "slug": "brand-500",
+          "color": "#a733ff",
+          "name": "ブランドカラー500"
+        },
+        {
+          "slug": "brand-400",
+          "color": "#b95cff",
+          "name": "ブランドカラー400"
+        },
+        {
+          "slug": "brand-300",
+          "color": "#c67aff",
+          "name": "ブランドカラー300"
+        },
+        {
+          "slug": "brand-200",
+          "color": "#c67aff",
+          "name": "ブランドカラー200"
+        },
+        {
+          "slug": "brand-100",
+          "color": "#e6bdff",
+          "name": "ブランドカラー100"
+        }
+      ]
+    },
+    "typography": {
+      "defaultFontSizes": false,
+      "fontFamilies": [
+        {
+          "name": "sans",
+          "slug": "sans",
+          "fontFamily": "'Inter', 'Noto Sans JP', sans-serif"
+        },
+        {
+          "name": "barlow",
+          "slug": "barlow",
+          "fontFamily": "'Barlow', sans-serif"
+        }
+      ],
+      "fontSizes": [
+        {
+          "name": "12",
+          "slug": "12",
+          "size": "0.75rem"
+        },
+        {
+          "name": "14",
+          "slug": "14",
+          "size": "0.875rem"
+        },
+        {
+          "name": "15",
+          "slug": "15",
+          "size": "0.9375rem"
+        },
+        {
+          "name": "16",
+          "slug": "16",
+          "size": "1rem"
+        },
+        {
+          "name": "18",
+          "slug": "18",
+          "size": "1.125rem"
+        },
+        {
+          "name": "20",
+          "slug": "20",
+          "size": "1.25rem"
+        },
+        {
+          "name": "22",
+          "slug": "22",
+          "size": "1.375rem"
+        },
+        {
+          "name": "24",
+          "slug": "24",
+          "size": "1.5rem"
+        },
+        {
+          "name": "32",
+          "slug": "32",
+          "size": "2rem"
+        },
+        {
+          "name": "40",
+          "slug": "40",
+          "size": "2.5rem"
+        },
+        {
+          "name": "48",
+          "slug": "48",
+          "size": "3rem"
+        },
+        {
+          "name": "64",
+          "slug": "64",
+          "size": "4rem"
+        },
+        {
+          "name": "80",
+          "slug": "80",
+          "size": "5rem"
+        }
+      ]
+    }
+  },
+  "styles": {
+    "spacing": {
+      "blockGap": "clamp(1rem, 1.048vw + 0.764rem, 1.5rem)",
+      "padding": {
+        "left": "var(--gutter)",
+        "right": "var(--gutter)"
+      },
+      "margin": {
+        "top": "var(--gutter)",
+        "bottom": "var(--gutter)"
+      }
+    },
+    "blocks": {
+      "core/image": {
+        "border": {
+          "radius": "clamp(0.625rem, 1.311vw + 0.33rem, 1.25rem)"
+        }
+      },
+      "core/buttons": {
+        "spacing": {
+          "blockGap": "clamp(1rem, 2vw + 0.5rem, 1.5rem)"
+        }
+      }
+    }
+  }
+}
