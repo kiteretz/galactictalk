@@ -27,7 +27,7 @@ while ( have_posts() ) :
 					<?php the_post_thumbnail( 'full', array( 'class' => 'h-full w-full object-cover lg:h-auto lg:translate-y-[-10%]' ) ); ?>
 					<div class="absolute inset-0 bg-gradient-to-b from-transparent from-10% to-black lg:from-40%"></div>
 				</div>
-				<div class="@container container mt-320 grid justify-self-end items-start ~gap-20/32 lg:mt-auto lg:pb-120">
+				<div class="container mt-320 grid justify-self-end items-start ~gap-20/32 lg:mt-auto lg:pb-120">
 					<div class="grid gap-16 font-barlow uppercase">
 						<?php if ( $english_title ) : ?>
 							<p class="font-bold leading-none ~text-40/120"><?php echo esc_html( $english_title ); ?></p>
@@ -37,7 +37,7 @@ while ( have_posts() ) :
 							<div class="font-bold leading-normal ~text-32/48"><?php echo esc_html( $tagline ); ?></div>
 						<?php endif; ?>
 					</div>
-					<div class="grid grid-cols-1 gap-32 items-start @lg:grid-cols-[repeat(2,auto)]">
+					<div class="grid grid-cols-1 gap-32 items-start lg:grid-cols-[repeat(2,auto)]">
 						<div class="grid ~gap-16/24">
 							<?php if ( $tags && ! is_wp_error( $tags ) ) : ?>
 								<div class="flex gap-8">
