@@ -16,12 +16,11 @@ $defaults = array(
 		'benefits' => '',
 	),
 	'card_class'  => '',
-	'background'  => '',
 );
 $args     = wp_parse_args( $args, $defaults );
 ?>
 
-<div class="<?php cx( 'grid grid-rows-[auto_1fr] content-start gap-20 rounded-16 bg-[--background-color] ~p-12/24 lg:gap-32', $args['card_class'] ); ?>" style="--background-color: <?php echo esc_attr( $args['background'] ); ?>;">
+<div class="<?php cx( 'grid grid-rows-[auto_1fr] content-start gap-20 rounded-16 bg-[--bg] ~p-12/24 lg:gap-32', $args['card_class'] ); ?>">
 	<div class="grid gap-16">
 		<div class="relative mb-10 rounded-8 bg-white p-10 text-center font-bold leading-none text-brand-950">
 			<?php echo esc_html( $args['description'] ); ?>
@@ -43,7 +42,7 @@ $args     = wp_parse_args( $args, $defaults );
 					<?php
 					cx(
 						'grid leading-relaxed ~gap-4/8 *:grid *:grid-cols-[4rem_1fr] *:~gap-4/8',
-						'[&_th]:rounded-4 [&_th]:bg-white [&_th]:px-8 [&_th]:text-[--background-color]',
+						'[&_th]:rounded-4 [&_th]:bg-white [&_th]:px-8 [&_th]:text-[--bg]',
 						'[&_th]:self-start [&_th]:pt-2 [&_th]:text-center [&_th]:font-bold',
 						'[&_td]:font-semibold [&_td]:pt-2',
 					);

@@ -558,7 +558,7 @@ if ( $testimonials ) :
 						'level'    => '初めて言語学習を始める方向け',
 						'benefits' => '基本的なサポート体制',
 					),
-					'background'  => '#00AF92',
+					'card_class'  => '[--bg:theme(colors.green.DEFAULT)]',
 				),
 				array(
 					'title'       => 'STANDARD',
@@ -570,7 +570,7 @@ if ( $testimonials ) :
 						'level'    => '地球語と異星語のバランスの取れた学習',
 						'benefits' => '充実したサポートと文化交流の機会',
 					),
-					'background'  => '#9100FF',
+					'card_class'  => '[--bg:theme(colors.brand.600)]',
 				),
 				array(
 					'title'       => 'PREMIUM',
@@ -582,7 +582,7 @@ if ( $testimonials ) :
 						'level'    => '最新の学習テクノロジーの利用',
 						'benefits' => 'プレミアム特典と体験プログラム',
 					),
-					'background'  => '#F78324',
+					'card_class'  => '[--bg:theme(colors.orange.DEFAULT)]',
 				),
 			);
 
