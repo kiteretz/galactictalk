@@ -41,3 +41,20 @@ add_action(
 		}
 	}
 );
+
+/**
+ * Register custom block styles
+ */
+add_action(
+	'init',
+	function () {
+		register_block_style(
+			'core/heading',
+			array(
+				'name'  => 'only-text',
+				'label' => 'テキストのみ',
+			)
+		);
+	},
+	99
+);
