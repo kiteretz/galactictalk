@@ -86,7 +86,7 @@ function _button( $label, $args = array() ) {
 function button( $label, $args = array() ) {
 	$args['class'] = clsx(
 		'group/button',
-		'flex min-w-320 items-center justify-between gap-10 rounded-full border-px border-brand-400 bg-transparent font-bold text-brand-400 ~text-16/18 ~px-20/32 ~py-16/27 ~leading-20/24 lg:min-w-380',
+		'flex min-w-320 items-center justify-between gap-10 rounded-full border-px border-brand-400 bg-transparent font-bold text-brand-400 ~text-16/18 ~px-20/32 py-16 ~leading-20/24',
 		$args['class'] ?? '',
 	);
 
@@ -95,22 +95,13 @@ function button( $label, $args = array() ) {
 	);
 
 	$args['icon_class'] = clsx(
-		'grid place-items-center',
+		'grid place-items-center before:size-16',
 		( $args['icon'] ?? false ) ? 'before:icon-' . $args['icon'] : 'before:icon-chevron-right',
 		$args['icon_class'] ?? '',
 	);
 
 	_button( $label, $args );
 }
-
-/**
- * Renders a text button with customizable attributes.
- *
- * @param string $label The text content of the button.
- * @param array  $args An array of button attributes. Default is an empty array.
- *                     - class (string): Additional CSS classes to apply to the button.
- * @return void
- */
 
 /**
  * Renders an icon button with customizable attributes.
