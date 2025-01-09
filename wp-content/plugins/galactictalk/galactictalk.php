@@ -17,3 +17,8 @@ require_once __DIR__ . '/includes/archive-title.php';
 require_once __DIR__ . '/includes/block-pattern.php';
 require_once __DIR__ . '/includes/post-type-and-taxonomy.php';
 require_once __DIR__ . '/includes/security.php';
+
+/**
+ * Registers blocks
+ */
+require_once __DIR__ . '/blocks/index.php';
