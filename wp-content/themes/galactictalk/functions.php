@@ -83,7 +83,7 @@ $google_fonts_url = 'https://fonts.googleapis.com/css2?family=Barlow+Condensed:w
  * Add editor styles.
  */
 add_action(
-	'enqueue_block_editor_assets',
+	'enqueue_block_assets',
 	function () use ( $google_fonts_url ) {
 		// When loading Google Fonts API URL, the fourth argument must be `null` for fonts to load correctly.
 		wp_enqueue_style( 'googlefonts', $google_fonts_url, array(), null );

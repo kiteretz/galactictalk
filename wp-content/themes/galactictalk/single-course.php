@@ -23,11 +23,11 @@ while ( have_posts() ) :
 		if ( has_post_thumbnail() ) :
 			?>
 			<div class="relative mb-48 grid *:col-span-full *:row-span-full lg:mb-0">
-				<div class="relative -z-10 ~/lg:~h-640/960 overflow-hidden lg:h-[min(calc(100vw*0.75),60rem)]">
+				<div class="relative ~/lg:~h-640/960 overflow-hidden lg:h-[min(calc(100vw*0.75),60rem)]">
 					<?php the_post_thumbnail( 'full', array( 'class' => 'h-full w-full object-cover lg:h-auto lg:translate-y-[-10%]' ) ); ?>
 					<div class="absolute inset-0 bg-gradient-to-b from-transparent from-10% to-black lg:from-40%"></div>
 				</div>
-				<div class="container mt-320 grid justify-self-end items-start ~gap-20/32 lg:mt-auto lg:pb-120">
+				<div class="z-10 container mt-320 grid justify-self-end items-start ~gap-20/32 lg:mt-auto lg:pb-120">
 					<div class="grid gap-16 font-barlow uppercase">
 						<?php if ( $english_title ) : ?>
 							<p class="font-bold leading-none ~text-40/120"><?php echo esc_html( $english_title ); ?></p>
