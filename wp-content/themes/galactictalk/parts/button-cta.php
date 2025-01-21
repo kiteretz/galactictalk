@@ -14,7 +14,7 @@ $args     = wp_parse_args( $args, $defaults );
 <a class="
 	<?php
 	cx(
-		'group/cta mx-auto grid h-80 !max-w-640 grid-cols-[auto,1fr] grid-rows-[5rem] items-center rounded-full bg-[theme(colors.pink.DEFAULT)] pl-0 pr-28 tracking-[-0.02em] transition-all duration-300 ease-out',
+		'js-bounce-in group/cta mx-auto grid h-80 !max-w-640 grid-cols-[auto,1fr] grid-rows-[5rem] items-center rounded-full bg-[theme(colors.pink.DEFAULT)] pl-0 pr-28 tracking-[-0.02em] transition-all duration-300 ease-out',
 		'lg:h-120 lg:!max-w-col-10 lg:grid-cols-[repeat(3,auto)] lg:grid-rows-[7.5rem] lg:pl-48 lg:pr-0',
 		'hover:drop-shadow-[0_0_1.5rem_theme(colors.pink.DEFAULT)]',
 		$args['class']

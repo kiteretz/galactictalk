@@ -243,7 +243,7 @@ get_header();
 				<!-- Images -->
 				<div class="pointer-events-none grid h-full w-full max-w-480 mx-auto [&>*]:col-span-full [&>*]:row-span-full">
 					<!-- Arched images -->
-					<div class="grid grid-cols-2 place-items-center px-18 ~/lg:~-translate-y-152/240 ~/lg:~gap-10/24 lg:translate-y-112">
+					<div class="js-staggered grid grid-cols-2 place-items-center px-18 ~/lg:~-translate-y-152/240 ~/lg:~gap-10/24 lg:translate-y-112">
 						<?php
 						foreach ( array(
 							array(
@@ -278,7 +278,7 @@ get_header();
 						<?php endforeach; ?>
 					</div>
 					<!-- Headphone and crystals -->
-					<div class="hidden lg:grid place-items-center lg:translate-y-136">
+					<div class="js-staggered hidden lg:grid place-items-center lg:translate-y-136">
 						<?php
 						foreach ( array(
 							array(
@@ -326,7 +326,7 @@ get_header();
 			</div>
 		</div>
 		<!-- Content -->
-		<div class="container grid ~gap-24/56 lg:grid-cols-3">
+		<div class="js-staggered container grid ~gap-24/56 lg:grid-cols-3">
 			<?php
 			$features = array(
 				array(
@@ -413,7 +413,7 @@ if ( $tutors ) :
 			<p class="inline-block bg-brand-500 font-bold ~rounded-4/8 ~px-12/16 ~py-4/8">人気講師</p>
 		</hgroup>
 		<div class="splide__track -my-64 py-64 xl:grid xl:justify-items-center">
-			<ul class="splide__list flex-row xl:!flex xl:max-w-container xl:flex-wrap xl:justify-center xl:gap-x-32 xl:gap-y-48">
+			<ul class="js-staggered splide__list flex-row xl:!flex xl:max-w-container xl:flex-wrap xl:justify-center xl:gap-x-32 xl:gap-y-48">
 				<?php foreach ( $tutors as $_post ) : ?>
 					<li class="splide__slide">
 						<?php
@@ -501,7 +501,7 @@ if ( $testimonials ) :
 		<p class="inline-block bg-brand-500 font-bold ~rounded-4/8 ~px-12/16 ~py-4/8">料金プラン</p>
 	</hgroup>
 	<div class="grid ~gap-24/40">
-		<div class="grid gap-20 lg:grid-cols-3 xl:gap-32">
+		<div class="js-staggered grid gap-20 lg:grid-cols-3 xl:gap-32">
 			<?php
 			$price_cards = array(
 				array(
@@ -624,7 +624,7 @@ if ( $magazine ) :
 			<p class="inline-block bg-brand-500 font-bold ~rounded-4/8 ~px-12/16 ~py-4/8">マガジン</p>
 		</hgroup>
 		<div class="splide__track -my-64 py-64 xl:-mb-80 xl:grid xl:justify-items-center">
-			<ul class="splide__list max-w-container xl:!flex xl:flex-row xl:flex-wrap">
+			<ul class="js-staggered splide__list max-w-container xl:!flex xl:flex-row xl:flex-wrap">
 				<?php
 				foreach ( $magazine as $index => $_post ) :
 					if ( 0 === $index ) :
