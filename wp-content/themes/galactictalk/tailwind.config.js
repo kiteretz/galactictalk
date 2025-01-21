@@ -45,7 +45,7 @@ module.exports = {
       ...generatePxToRemObject(
         range(0, 16, 1),
         range(18, 32, 2),
-        range(36, 48, 4)
+        range(36, 48, 4),
       ),
       full: '100vmax',
     },
@@ -80,7 +80,7 @@ module.exports = {
             }, {});
         } catch (error) {
           console.warn(
-            'Warning: icons directory not found at /assets/images/icon/'
+            'Warning: icons directory not found at /assets/images/icon/',
           );
           return {};
         }
@@ -140,7 +140,7 @@ module.exports = {
         range(1, 48, 1),
         range(50, 144, 2),
         range(148, 720, 4),
-        range(728, 1920, 8)
+        range(728, 1920, 8),
       ),
     },
     tag: {
@@ -182,7 +182,10 @@ module.exports = {
         },
       },
       animation: {
-        marquee: 'marquee 30s linear infinite',
+        marquee: 'marquee 60s linear infinite',
+      },
+      transitionTimingFunction: {
+        'out-back': 'cubic-bezier(0.34, 1.56, 0.64, 1)',
       },
     },
   },
@@ -238,7 +241,7 @@ module.exports = {
               'flex-shrink': '0',
             }),
           },
-          { values: theme('icon') }
+          { values: theme('icon') },
         );
 
         /**
@@ -264,7 +267,7 @@ module.exports = {
           },
           {
             values: theme('tag'),
-          }
+          },
         );
 
         /**
@@ -316,9 +319,9 @@ module.exports = {
           {
             values: theme('fontFeatureSettings'),
             type: ['any'],
-          }
+          },
         );
-      }
+      },
     ),
   ],
 };
@@ -333,7 +336,7 @@ module.exports = {
  */
 function range(start, end, step) {
   return Array.from({ length: Math.floor((end - start) / step + 1) }, (_, i) =>
-    parseFloat((start + i * step).toFixed(2))
+    parseFloat((start + i * step).toFixed(2)),
   );
 }
 

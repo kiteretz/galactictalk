@@ -86,7 +86,12 @@ function _button( $label, $args = array() ) {
 function button( $label, $args = array() ) {
 	$args['class'] = clsx(
 		'group/button',
-		'flex min-w-320 items-center justify-between gap-10 rounded-full border-px border-brand-400 bg-transparent font-bold text-brand-400 ~text-16/18 ~px-20/32 py-16 ~leading-20/24',
+		'relative overflow-hidden flex min-w-320 items-center justify-between gap-10 rounded-full border-px border-brand-400 bg-transparent font-bold text-brand-400 ~text-16/18 ~px-20/32 py-16 ~leading-20/24',
+		'transition-[color,background] duration-[0.3s,0.5s]',
+		'before:inset-0 before:absolute before:bg-brand-400 before:-z-10 before:!opacity-0 before:transition-all before:duration-300 before:-translate-x-full before:rounded-full',
+		'hover:bg-brand-400 hover:text-white',
+		'hover:before:!opacity-100 hover:before:translate-x-0',
+		'before:opacity-100',
 		$args['class'] ?? '',
 	);
 
@@ -114,7 +119,8 @@ function button( $label, $args = array() ) {
  */
 function icon_button( $icon, $args = array() ) {
 	$args['class'] = clsx(
-		'group/icon_button w-fit rounded-6 text-brand-500 flex items-center',
+		'group/icon_button w-fit rounded-6 text-brand-500 flex items-center transition-all duration-300 ease-out',
+		'hover:enabled:text-brand-300',
 		$args['class'] ?? '',
 	);
 
