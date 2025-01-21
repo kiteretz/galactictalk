@@ -14,10 +14,10 @@
 <?php wp_head(); ?>
 </head>
 
-<body <?php body_class( 'bg-black text-white ~text-15/16 leading-relaxed antialiased flex flex-col min-h-screen' ); ?>>
+<body <?php body_class( 'relative bg-black text-white ~text-15/16 leading-relaxed antialiased flex flex-col min-h-screen' ); ?>>
 <?php wp_body_open(); ?>
 
-<header class="sticky top-0 z-50 w-full max-w-1600 lg:mx-auto lg:px-40">
+<header class="js-header sticky top-0 z-50 w-full max-w-1600 lg:mx-auto lg:px-40">
 	<div class="rounded-b-12 bg-black/50 backdrop-blur-[1.25rem] py-8 px-16 lg:flex lg:items-center lg:justify-between lg:rounded-b-16 lg:p-16 lg:shadow-md">
 		<div class="flex items-center justify-between">
 			<a class="flex justify-center p-8" href="<?php echo esc_url( home_url( '/' ) ); ?>">

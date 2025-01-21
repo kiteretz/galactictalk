@@ -9,57 +9,79 @@ get_header();
 ?>
 
 <!-- Hero section -->
-<section class="relative grid lg:~lg:~-mb-176/120">
-	<div class="relative z-10 mt-112 grid aspect-[360/600] lg:mt-[calc(var(--header-height)+2.45625rem)] lg:aspect-[1600/1000]">
+<section class="relative grid lg:~lg:~-mb-176/120 justify-items-center">
+	<div class="relative z-10 pt-16 grid lg:pt-0 w-full ~text-55/132 lg:text-[min(calc((100svh-var(--header-height))*0.162),8.3025vw)]">
 		<!-- Copy text -->
-		<div class="grid place-items-center content-start gap-10 py-15 ~px-8/40 *:col-span-full *:row-span-full lg:gap-0 lg:p-0">
-			<h1 class="js-split-text grid text-center ~text-55/132 leading-none !tracking-tighter gradient-text lg:text-[8.75vw]">
+		<div class="grid place-items-center content-start gap-10 py-15 ~px-8/40 *:col-span-full *:row-span-full lg:gap-0 lg:p-0 lg:pt-[0.3em] text-center mt-[--header-height] self-start row-[1/2] col-[1/2]">
+			<h1 class="js-split-text-mv grid leading-none !tracking-tighter">
 				<span class="sr-only">The Power of Language</span>
-				<?php split_text( 'The Power' ); ?>
-				<?php split_text( 'of Language' ); ?>
+				<?php split_text( 'The Power', 'gradient-text' ); ?>
+				<?php split_text( 'of Language', 'gradient-text' ); ?>
 			</h1>
-			<p class="text-center font-semibold leading-tight text-brand-300 gradient-text ~/lg:~text-11/28 ~pt-6/14 lg:text-[1.75vw] lg:leading-none">ワクワクする未来を話そう</p>
+			<p class="js-tagline font-semibold leading-tight text-brand-300 gradient-text ~/lg:~text-11/28 ~pt-6/14 lg:text-[0.2em] lg:leading-none">ワクワクする未来を話そう</p>
 		</div>
 		<!-- Main images -->
-		<div class="pointer-events-none absolute inset-x-0 ~/lg:~bottom-152/520 lg:bottom-[3.125vw]">
+		<div class="pointer-events-none row-[1/3] col-[1/2]">
 			<!-- Tutors and door -->
-			<div class="relative grid place-items-center">
-				<?php
-				foreach ( array(
-					array(
-						'class'  => 'w-[29.6vw] translate-x-[-23.3vw] translate-y-[-6.6vw] rotate-[-21deg] lg:w-[14.56vw] lg:translate-x-[-15.375vw] lg:translate-y-[-8vw] lg:rotate-[-33deg]',
-						'width'  => 252,
-						'height' => 455,
-						'src'    => '/assets/images/tutor-whole-1.webp',
-					),
-					array(
-						'class'  => 'w-[33.2vw] translate-y-[-14.7vw] lg:w-[15.75vw] lg:translate-x-[14.375vw] lg:translate-y-[-10.625vw] lg:rotate-[30deg]',
-						'width'  => 279,
-						'height' => 425,
-						'src'    => '/assets/images/tutor-whole-2.webp',
-					),
-					array(
-						'class'  => 'w-[36.5vw] translate-x-[22.2vw] translate-y-[-6.3vw] rotate-[28deg] lg:w-[15.5vw] lg:translate-x-[18.5vw] lg:translate-y-[1.0625vw] lg:rotate-[45deg]',
-						'width'  => 319,
-						'height' => 456,
-						'src'    => '/assets/images/tutor-whole-3.webp',
-					),
-				) as $image ) :
-					?>
-					<div class="<?php cx( 'absolute', $image['class'] ); ?>">
+			<div class="relative inset-x-0 grid justify-items-center">
+				<div class="absolute inset-0 grid justify-items-center bottom-[1em] overflow-hidden"><?php // To clip the initial bottom overflow. ?>
+					<?php
+					foreach ( array(
+						array(
+							'class'  => 'w-[2.43em] translate-x-[-1.745em] translate-y-[1.363em] rotate-[-21deg] lg:w-[1.7em] lg:-translate-x-[1.9em] lg:translate-y-[0.27em] lg:rotate-[-33deg]',
+							'width'  => 252,
+							'height' => 455,
+							'src'    => '/assets/images/tutor-whole-1.webp',
+						),
+						array(
+							'class'  => 'w-[2.763em] translate-y-[0.7636em] lg:w-[1.9em] lg:translate-x-[1.7em] lg:translate-y-[0.1em] lg:rotate-[30deg]',
+							'width'  => 279,
+							'height' => 425,
+							'src'    => '/assets/images/tutor-whole-2.webp',
+						),
+						array(
+							'class'  => 'w-[2.654em] translate-x-[1.745em] translate-y-[1.363em] rotate-[28deg] lg:w-[1.867em] lg:translate-x-[2.2em] lg:translate-y-[1.7em] lg:rotate-[45deg]',
+							'width'  => 319,
+							'height' => 456,
+							'src'    => '/assets/images/tutor-whole-3.webp',
+						),
+					) as $image ) :
+						?>
+						<div class="<?php cx( 'js-tutor absolute mt-[calc(var(--header-height)+1.9em)]', $image['class'] ); ?>">
+							<img
+								class="w-full"
+								src="<?php echo esc_url( get_theme_file_uri( $image['src'] ) ); ?>"
+								width="<?php echo esc_attr( $image['width'] ); ?>"
+								height="<?php echo esc_attr( $image['height'] ); ?>"
+								alt=""
+							>
+						</div>
+					<?php endforeach; ?>
+				</div>
+				<!-- Another world -->
+				<div class="absolute inset-0 [mask:linear-gradient(to_bottom,#000_calc(100%-1em),transparent)]">
+					<div class="
+						<?php
+						cx(
+							'js-another-world-mask absolute inset-0',
+							'[mask-image:url(../images/another-world-mask.png)]',
+							'[mask-position:center_calc(50%+(var(--header-height)+5em)/2)]',
+							'[mask-repeat:no-repeat] [mask-size:5.2739726em_6.7em]',
+							'lg:[mask-position:center_calc(50%+(var(--header-height)+1.9em)/2)] lg:[mask-size:5.2739726em_5.5em]'
+						)
+						?>
+					">
 						<img
-							class="w-full"
-							src="<?php echo esc_url( get_theme_file_uri( $image['src'] ) ); ?>"
-							width="<?php echo esc_attr( $image['width'] ); ?>"
-							height="<?php echo esc_attr( $image['height'] ); ?>"
-							alt=""
+							class="js-another-world h-[calc(8em+var(--header-height))] object-cover object-bottom scale-90 lg:origin-[center_70%]"
+							src="<?php echo esc_url( get_theme_file_uri( '/assets/images/another-world.jpg' ) ); ?>"
+							width="2400" height="1600" alt=""
 						>
 					</div>
-				<?php endforeach; ?>
+				</div>
 				<img
-					class="relative z-20 w-[90vw] scale-[115%] translate-y-[31vw] max-w-none drop-shadow-[0_-2rem_2rem_rgba(0,0,0,0.4)] lg:w-[44vw] lg:translate-y-[2vw]"
+					class="js-door relative z-20 mt-[calc(var(--header-height)+4.673em)] h-[6.7em] w-auto scale-[1.1] lg:mt-[calc(var(--header-height)+1.9em)] lg:h-[5.5em] lg:scale-100"
 					src="<?php echo esc_url( get_theme_file_uri( '/assets/images/door.webp' ) ); ?>"
-					width="279" height="428" alt=""
+					width="1680" height="1752" alt=""
 				>
 			</div>
 			<!-- Crystals and Sparkles and Spaceships -->
@@ -67,67 +89,67 @@ get_header();
 				<?php
 				foreach ( array(
 					array(
-						'class'  => 'hidden lg:block lg:w-[10.75vw] lg:translate-x-[-32.5vw] lg:translate-y-[-26.75vw]',
+						'class'  => 'js-spaceship hidden lg:block lg:w-[1.295em] lg:-translate-x-[3.914em] lg:translate-y-[-1.8em]',
 						'src'    => 'spaceship-1.webp',
 						'width'  => 235,
 						'height' => 139,
 					),
 					array(
-						'class'  => 'hidden lg:block lg:w-[11.125vw] lg:translate-x-[35.375vw] lg:translate-y-[-14.125vw]',
+						'class'  => 'js-ufo hidden lg:block lg:w-[1.34em] lg:translate-x-[4.261em] lg:translate-y-[-0.5em]',
 						'src'    => 'spaceship-2.webp',
 						'width'  => 252,
 						'height' => 87,
 					),
 					array(
-						'class'  => 'w-[10.55vw] rotate-[15deg] translate-x-[-45vw] translate-y-[32.3vw] lg:w-[4.875vw] lg:translate-x-[-21.875vw] lg:translate-y-[6.1875vw]',
-						'src'    => 'crystal-yellow.webp',
-						'width'  => 103,
-						'height' => 160,
+						'class' => 'js-staggered-mv hidden lg:block lg:w-[0.316em] lg:translate-x-[-2.951em] lg:translate-y-[0.545em]',
+						'src'   => 'star-white.svg',
 					),
 					array(
-						'class'  => 'hidden lg:block lg:rotate-[45deg] lg:w-[3.25vw] lg:translate-x-[-28.5vw] lg:translate-y-[3.125vw]',
-						'src'    => 'crystal-green.webp',
-						'width'  => 62,
-						'height' => 114,
-					),
-					array(
-						'class'  => 'hidden lg:block lg:rotate-[-30deg] lg:w-[2vw] lg:translate-x-[-26.75vw] lg:translate-y-[-3.375vw]',
+						'class'  => 'js-staggered-mv hidden lg:block lg:rotate-[-30deg] lg:w-[0.241em] lg:translate-x-[-3.222em] lg:translate-y-[0.800em]',
 						'src'    => 'crystal-red.webp',
 						'width'  => 83,
 						'height' => 145,
 					),
 					array(
-						'class'  => 'hidden lg:block lg:rotate-[-30deg] lg:w-[3.5vw] lg:translate-x-[30vw] lg:translate-y-[-4.875vw]',
+						'class'  => 'js-staggered-mv hidden lg:block lg:rotate-[45deg] lg:w-[0.391em] lg:translate-x-[-3.433em] lg:translate-y-[1.583em]',
+						'src'    => 'crystal-green.webp',
+						'width'  => 62,
+						'height' => 114,
+					),
+					array(
+						'class'  => 'js-staggered-mv w-[0.681em] rotate-[15deg] translate-x-[-3em] translate-y-[3.181em] lg:w-[0.587em] lg:translate-x-[-2.635em] lg:translate-y-[1.952em]',
+						'src'    => 'crystal-yellow.webp',
+						'width'  => 103,
+						'height' => 160,
+					),
+					array(
+						'class' => 'js-staggered-mv w-[0.4em] translate-x-[-2.181em] translate-y-[3.454em] lg:w-[0.316em] lg:translate-x-[-1.777em] lg:translate-y-[2.110em]',
+						'src'   => 'star-white.svg',
+					),
+					array(
+						'class' => 'js-staggered-mv w-[1.4em] translate-x-[1.454em] translate-y-[3.454em] lg:w-[1.039em] lg:translate-x-[1.174em] lg:translate-y-[2.020em]',
+						'src'   => 'star-white.svg',
+					),
+					array(
+						'class' => 'js-staggered-mv w-[0.664em] translate-x-[1.963em] translate-y-[3.09em] lg:w-[0.482em] lg:translate-x-[1.596em] lg:translate-y-[1.779em]',
+						'src'   => 'star-white.svg',
+					),
+					array(
+						'class' => 'js-staggered-mv hidden lg:block lg:w-[0.557em] lg:translate-x-[3.403em] lg:translate-y-[1.282em]',
+						'src'   => 'star-white.svg',
+					),
+					array(
+						'class'  => 'js-staggered-mv hidden lg:block lg:rotate-[-30deg] lg:w-[0.422em] lg:translate-x-[3.613em] lg:translate-y-[0.620em]',
 						'src'    => 'crystal-purple.webp',
 						'width'  => 68,
 						'height' => 110,
 					),
 					array(
-						'class' => 'hidden lg:block lg:w-[2.625vw] lg:translate-x-[-24.5vw] lg:translate-y-[-5.5vw]',
+						'class' => 'js-staggered-mv hidden lg:block lg:w-[0.301em] lg:translate-x-[3.719em] lg:translate-y-[0.176em]',
 						'src'   => 'star-white.svg',
 					),
 					array(
-						'class' => 'w-[6vw] translate-x-[-30vw] translate-y-[35.5vw] lg:w-[1.75vw] lg:translate-x-[25.875vw] lg:translate-y-[-12.75vw]',
-						'src'   => 'star-white.svg',
-					),
-					array(
-						'class' => 'w-[18vw] translate-x-[20.4vw] translate-y-[34.1vw] lg:w-[8.625vw] lg:translate-x-[9.75vw] lg:translate-y-[6.75vw]',
-						'src'   => 'star-white.svg',
-					),
-					array(
-						'class' => 'w-[8vw] translate-x-[27.6vw] translate-y-[29.8vw] lg:w-[4vw] lg:translate-x-[13.25vw] lg:translate-y-[4.75vw]',
-						'src'   => 'star-white.svg',
-					),
-					array(
-						'class' => 'hidden lg:block lg:w-[4.625vw] lg:translate-x-[28.25vw] lg:translate-y-[0.625vw]',
-						'src'   => 'star-white.svg',
-					),
-					array(
-						'class' => 'hidden lg:block lg:w-[2.5vw] lg:translate-x-[30.875vw] lg:translate-y-[-8.5625vw]',
-						'src'   => 'star-white.svg',
-					),
-					array(
-						'class' => 'hidden lg:block lg:w-[2.625vw] lg:translate-x-[-14.75vw] lg:translate-y-[7.5vw]',
+						'class' => 'js-staggered-mv hidden lg:block w-[0.723em] translate-x-[-3.613em] translate-y-[5.483em] lg:w-[0.211em] lg:translate-x-[3.117em] lg:translate-y-[-0.32em]',
 						'src'   => 'star-white.svg',
 					),
 				) as $image ) :
@@ -144,7 +166,7 @@ get_header();
 		</div>
 	</div>
 	<!-- Background image for mobile -->
-	<div class="lg:hidden -z-10 absolute inset-x-0 top-[4.444vw]">
+	<div class="lg:hidden -z-10 absolute inset-x-0 ~/lg:~-top-0/560">
 		<img
 			class="w-full h-full object-cover"
 			src="<?php echo esc_url( get_theme_file_uri( '/assets/images/bg-hero-sp.webp' ) ); ?>"
@@ -152,11 +174,11 @@ get_header();
 		>
 	</div>
 	<!-- Background image for desktop -->
-	<div class="hidden justify-center w-full -z-10 absolute inset-x-0 lg:flex">
+	<div class="hidden justify-center -z-10 absolute inset-0 lg:flex">
 		<img
-			class="w-full h-full object-contain"
+			class="max-w-none w-auto h-[127%]"
 			src="<?php echo esc_url( get_theme_file_uri( '/assets/images/bg-hero.webp' ) ); ?>"
-			width="1600" height="1591" alt=""
+			width="1846" height="1407" alt=""
 		>
 	</div>
 	<!-- News area -->
@@ -169,55 +191,57 @@ get_header();
 	);
 	if ( $news ) :
 		?>
-		<div class="splide js-news-carousel z-20 mx-auto -mt-[6vw] flex flex-col ~/lg:~gap-28/40 md:max-w-768 lg:absolute lg:right-16 lg:mt-0 lg:max-w-400 lg:gap-24 lg:~lg/xl:~bottom-0/152 2xl:max-w-[26vw] 2xl:gap-[1.75vw]">
-			<div class="flex items-center justify-between gap-24 px-16 drop-shadow-[0_0_1rem_07030E] lg:justify-end lg:px-12 2xl:gap-[1.5vw]">
-				<h2 class="uppercase leading-none ~text-28/40 gradient-text 2xl:text-[2.5vw]">News</h2>
-				<div class="splide__arrows relative flex justify-end gap-16 2xl:gap-[1vw] disabled:[&_button]:opacity-50">
-					<?php
-					icon_button(
-						'chevron-left',
-						array(
-							'class'      => 'splide__arrow splide__arrow--prev',
-							'label'      => '前のニュース',
-							'type'       => 'button',
-							'icon_class' => '2xl:before:size-[2vw]',
-						)
-					);
-					icon_button(
-						'chevron-right',
-						array(
-							'class'      => 'splide__arrow splide__arrow--next',
-							'label'      => '次のニュース',
-							'type'       => 'button',
-							'icon_class' => '2xl:before:size-[2vw]',
-						)
-					);
-					?>
+		<div class="lg:absolute right-0 w-full aspect-[16/10] max-h-svh">
+			<div class="splide js-news-mv js-news-carousel z-20 mx-auto -mt-[6vw] flex flex-col ~/lg:~gap-28/40 md:max-w-768 lg:absolute lg:right-16 lg:mt-0 lg:max-w-400 lg:gap-24 lg:bottom-gutter 2xl:max-w-[26vw] 2xl:gap-[1.75vw]">
+				<div class="flex items-center justify-between gap-24 px-16 drop-shadow-[0_0_1rem_07030E] lg:justify-end lg:px-12 2xl:gap-[1.5vw]">
+					<h2 class="uppercase leading-none ~text-28/40 gradient-text 2xl:text-[2.5vw]">News</h2>
+					<div class="splide__arrows relative flex justify-end gap-16 2xl:gap-[1vw] disabled:[&_button]:opacity-50">
+						<?php
+						icon_button(
+							'chevron-left',
+							array(
+								'class'      => 'splide__arrow splide__arrow--prev',
+								'label'      => '前のニュース',
+								'type'       => 'button',
+								'icon_class' => '2xl:before:size-[2vw]',
+							)
+						);
+						icon_button(
+							'chevron-right',
+							array(
+								'class'      => 'splide__arrow splide__arrow--next',
+								'label'      => '次のニュース',
+								'type'       => 'button',
+								'icon_class' => '2xl:before:size-[2vw]',
+							)
+						);
+						?>
+					</div>
 				</div>
-			</div>
-			<div class="splide__track overflow-visible lg:translate-x-28">
-				<ul class="splide__list">
-					<?php foreach ( $news as $index => $_post ) : ?>
-						<li class="splide__slide -my-4 flex w-full justify-center transition-[transform] duration-300 ease-in-out even:[rotate:4deg]" style="z-index: <?php echo esc_attr( count( $news ) - $index ); ?>">
-							<a href="<?php echo esc_url( get_the_permalink( $_post ) ); ?>" class="my-4 flex h-full max-h-100 w-[calc(100%-calc(var(--gutter)*2))] overflow-hidden rounded-16 bg-white text-brand-900 shadow ~gap-4/8 2xl:my-[0.25vw] 2xl:rounded-[1vw]">
-								<div class="basis-1/3">
-									<img class="h-full w-full object-cover" src="<?php echo esc_url( get_the_post_thumbnail_url( $_post, 'full' ) ); ?>" alt="" width="120" height="100">
-								</div>
-								<div class="flex flex-col basis-2/3 ~px-4/8 ~py-12/16 tracking-tighter 2xl:px-8 2xl:py-16">
-									<time datetime="<?php echo esc_html( get_the_date( 'Y.m.d', $_post ) ); ?>" class="min-w-0 font-barlow ~lg/2xl:~text-12/13 2xl:text-13"><?php echo esc_html( get_the_date( 'Y.m.d', $_post ) ); ?></time>
-									<div class="line-clamp-2 font-medium leading-normal 2xl:text-16"><?php echo esc_html( $_post->post_title ); ?></div>
-								</div>
-							</a>
-						</li>
-					<?php endforeach; ?>
-				</ul>
+				<div class="splide__track overflow-visible lg:translate-x-28">
+					<ul class="splide__list">
+						<?php foreach ( $news as $index => $_post ) : ?>
+							<li class="splide__slide -my-4 flex w-full justify-center transition-[transform] duration-300 ease-in-out even:[rotate:4deg]" style="z-index: <?php echo esc_attr( count( $news ) - $index ); ?>">
+								<a href="<?php echo esc_url( get_the_permalink( $_post ) ); ?>" class="my-4 flex h-full max-h-100 w-[calc(100%-calc(var(--gutter)*2))] overflow-hidden rounded-16 bg-white text-brand-900 shadow ~gap-4/8 2xl:my-[0.25vw] 2xl:rounded-[1vw]">
+									<div class="basis-1/3">
+										<img class="h-full w-full object-cover" src="<?php echo esc_url( get_the_post_thumbnail_url( $_post, 'full' ) ); ?>" alt="" width="120" height="100">
+									</div>
+									<div class="flex flex-col basis-2/3 ~px-4/8 ~py-12/16 tracking-tighter 2xl:px-[0.5vw]">
+										<time datetime="<?php echo esc_html( get_the_date( 'Y.m.d', $_post ) ); ?>" class="min-w-0 font-barlow ~lg/2xl:~text-12/13 2xl:text-[0.8125vw]"><?php echo esc_html( get_the_date( 'Y.m.d', $_post ) ); ?></time>
+										<div class="line-clamp-2 font-medium leading-normal 2xl:text-15"><?php echo esc_html( $_post->post_title ); ?></div>
+									</div>
+								</a>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
 			</div>
 		</div>
 	<?php endif; ?>
 </section>
 
 <!-- Features section -->
-<section class="relative mt-40 lg:~lg:~-mt-0/144 2xl:mt-[-9vw]">
+<section class="relative -mt-48 lg:~lg:~-mt-0/144 2xl:mt-[-9vw]">
 	<div class="z-10 grid place-items-center ~gap-40/72 lg:pt-160">
 		<?php
 		get_template_part(
@@ -233,28 +257,30 @@ get_header();
 		<div class="grid ~gap-40/80">
 			<div class="flex flex-col-reverse lg:gap-40 lg:grid lg:[&>*]:col-span-full lg:[&>*]:row-span-full">
 				<!-- Introduction -->
-				<div class="grid gap-gutter-1.5 lg:gap-8">
-					<div class="grid place-items-center gap-8 lg:mx-auto lg:w-fit lg:grid-cols-[repeat(2,auto)] lg:content-end">
-						<span class="relative">
-							<span class="absolute -right-64 -top-24 lg:-top-44 grid rotate-[15deg] place-items-center rounded-full bg-[#F748A1] font-black ~text-18/24 ~/lg:~size-100/120 lg:-right-48">地球初！</span>
-							<span class="relative -mt-16 inline-block !font-barlow-condensed !font-semibold leading-none gradient-text ~/2xl:~text-[12.5rem]/[18.75rem]">100</span>
-						</span>
-						<span class="grid gap-8 font-black leading-none ~/2xl:~text-32/48 lg:self-end lg:justify-self-start lg:pb-24">
-							<span>以上の星の</span>
-							<span>伝わる言語</span>
-							<span>が学べる</span>
-						</span>
-					</div>
-					<div class="grid px-24 text-center font-bold ~text-18/24 lg:content-start">
-						<span>教材とカリキュラムが試せる！</span>
-						<span>無料トライアルでぜひギャラクティックトークを</span>
-						<span>お得に試してみてください。</span>
+				<div class="z-10 -mt-8 grid gap-40 px-gutter-1.5 lg:auto-rows-min lg:gap-64">
+					<div class="grid gap-gutter-1.5 lg:gap-8">
+						<div class="grid place-items-center gap-8 lg:mx-auto lg:w-fit lg:grid-cols-[repeat(2,auto)] lg:content-end">
+							<span class="relative">
+								<span class="absolute -right-64 -top-24 lg:-top-44 grid rotate-[15deg] place-items-center rounded-full bg-[#F748A1] font-black ~text-18/24 ~/lg:~size-100/120 lg:-right-48">地球初！</span>
+								<span class="relative -mt-16 inline-block !font-barlow-condensed !font-semibold leading-none gradient-text ~/2xl:~text-[12.5rem]/[18.75rem]">100</span>
+							</span>
+							<span class="grid gap-8 font-black leading-none ~/2xl:~text-32/48 lg:self-end lg:justify-self-start lg:pb-24">
+								<span>以上の星の</span>
+								<span>伝わる言語</span>
+								<span>が学べる</span>
+							</span>
+						</div>
+						<div class="grid text-center ~text-18/24 font-bold lg:content-start">
+							<span>教材とカリキュラムが試せる！</span>
+							<span>無料トライアルでぜひギャラクティックトークを</span>
+							<span>お得に試してみてください。</span>
+						</div>
 					</div>
 				</div>
 				<!-- Images -->
 				<div class="pointer-events-none grid h-full w-full max-w-480 mx-auto [&>*]:col-span-full [&>*]:row-span-full">
 					<!-- Arched images -->
-					<div class="js-staggered grid grid-cols-2 place-items-center px-18 ~/lg:~-translate-y-152/240 ~/lg:~gap-10/24 lg:translate-y-112">
+					<div class="js-staggered grid grid-cols-2 place-items-center px-18 ~/md:~-translate-y-172/360 md:~/lg:~-translate-y-200/240 ~/lg:~gap-10/24 lg:translate-y-112">
 						<?php
 						foreach ( array(
 							array(
@@ -335,52 +361,52 @@ get_header();
 					</div>
 				</div>
 			</div>
-		</div>
-		<!-- Content -->
-		<div class="js-staggered container grid ~gap-24/56 lg:grid-cols-3">
-			<?php
-			$features = array(
-				array(
-					'image'   => array(
-						'src' => 'features-4.webp',
+			<!-- Content -->
+			<div class="js-staggered container grid ~gap-24/56 lg:grid-cols-3">
+				<?php
+				$features = array(
+					array(
+						'image'   => array(
+							'src' => 'features-4.webp',
+						),
+						'title'   => '言語だけでなく文化も学べるネイティブ講師',
+						'content' => 'ギャラクティックトークの講師は、全員その星生まれのネイティブ。言語だけでなく、その星で暮らす人からリアルな文化や風習を学べることも魅力です。',
 					),
-					'title'   => '言語だけでなく文化も学べるネイティブ講師',
-					'content' => 'ギャラクティックトークの講師は、全員その星生まれのネイティブ。言語だけでなく、その星で暮らす人からリアルな文化や風習を学べることも魅力です。',
-				),
-				array(
-					'image'   => array(
-						'src' => 'features-5.webp',
+					array(
+						'image'   => array(
+							'src' => 'features-5.webp',
+						),
+						'title'   => 'さまざまな文化に出会える、交流プログラム',
+						'content' => '様々な惑星からの学習者同士が交流できるオンラインイベントを定期的に開催。一緒にアクティビティを楽しんだり、ひとりで参加しても楽しめる企画をご用意しています。',
 					),
-					'title'   => 'さまざまな文化に出会える、交流プログラム',
-					'content' => '様々な惑星からの学習者同士が交流できるオンラインイベントを定期的に開催。一緒にアクティビティを楽しんだり、ひとりで参加しても楽しめる企画をご用意しています。',
-				),
-				array(
-					'image'   => array(
-						'src' => 'features-6.webp',
+					array(
+						'image'   => array(
+							'src' => 'features-6.webp',
+						),
+						'title'   => '忙しくても、30分で学べるカリキュラム',
+						'content' => 'ちょっとした移動時間でも学べる、30分から取り組めるカリキュラムと専用デバイスで、仕事や学業と並行して無理なく学習を継続することができます。',
 					),
-					'title'   => '忙しくても、30分で学べるカリキュラム',
-					'content' => 'ちょっとした移動時間でも学べる、30分から取り組めるカリキュラムと専用デバイスで、仕事や学業と並行して無理なく学習を継続することができます。',
-				),
-			);
+				);
 
-			foreach ( $features as $feature ) :
-				?>
-				<div class="grid place-items-center gap-24 px-gutter-1.5 tracking-[-0.04em] auto-rows-min lg:px-0">
-					<img
-						class="w-[72%] lg:w-[80%]"
-						src="<?php echo esc_url( get_theme_file_uri( '/assets/images/' . $feature['image']['src'] ) ); ?>"
-						alt=""
-						width="280"
-						height="309"
-					>
-					<div class="grid place-items-center ~gap-16/24">
-						<div class="grid gap-16">
-							<h3 class="text-center font-black ~text-24/32 leading-normal"><?php echo esc_html( $feature['title'] ); ?></h3>
-							<p class="leading-relaxed"><?php echo esc_html( $feature['content'] ); ?></p>
+				foreach ( $features as $feature ) :
+					?>
+					<div class="grid place-items-center gap-24 px-gutter-1.5 tracking-[-0.04em] auto-rows-min lg:px-0">
+						<img
+							class="w-[72%] lg:w-[80%]"
+							src="<?php echo esc_url( get_theme_file_uri( '/assets/images/' . $feature['image']['src'] ) ); ?>"
+							alt=""
+							width="280"
+							height="309"
+						>
+						<div class="grid place-items-center ~gap-16/24">
+							<div class="grid gap-16">
+								<h3 class="text-center font-black ~text-24/32 leading-normal"><?php echo esc_html( $feature['title'] ); ?></h3>
+								<p class="leading-relaxed"><?php echo esc_html( $feature['content'] ); ?></p>
+							</div>
 						</div>
 					</div>
-				</div>
-			<?php endforeach; ?>
+				<?php endforeach; ?>
+			</div>
 		</div>
 	</div>
 </section>
@@ -589,7 +615,7 @@ if ( $testimonials ) :
 </section>
 
 <!-- Marquee section -->
-<section class="flex *:animate-marquee *:shrink-0">
+<section class="flex *:animate-marquee *:shrink-0" aria-hidden="true">
 	<?php for ( $i = 0; $i < 3; $i++ ) : ?>
 		<div class="flex flex-nowrap ~text-64/80 uppercase leading-none tracking-[-0.02em] stroke-text">
 			<?php
@@ -722,58 +748,38 @@ if ( $faqs ) :
 		);
 		?>
 		<div class="grid">
-		<?php foreach ( $faqs as $_post ) : ?>
-			<div class="js-accordion group/button grid border-b-px border-brand-400" aria-expanded="false">
-				<button class="js-accordion-trigger flex w-full items-center justify-between gap-24 py-20 font-black lg:py-30">
-					<span class="flex items-center gap-24 text-left ~text-16/18 before:-translate-y-4 before:text-40 before:leading-none before:content-['Q'] before:gradient-text"><?php echo esc_html( $_post->post_title ); ?></span>
-					<span class="grid size-24 shrink-0 place-items-center transition-transform duration-300 ease-out-back after:icon-chevron-down after:text-brand-300 group-aria-expanded/button:rotate-180">
-				</button>
-				<div class="grid grid-rows-[1fr] overflow-hidden font-semibold transition-all duration-300 aria-hidden:grid-rows-[0fr]" aria-hidden="true">
-					<div class="min-h-0">
-						<div class="flex gap-24 pb-28 lg:pr-48 lg:pb-40 before:-translate-y-4 before:text-40 before:leading-none before:content-['A'] before:gradient-text">
-							<p class="mt-4"><?php echo esc_html( wp_strip_all_tags( get_the_content( null, false, $_post ) ) ); ?></p>
+			<?php foreach ( $faqs as $_post ) : ?>
+				<div class="js-accordion group/button grid border-b-px border-brand-400" aria-expanded="false">
+					<button class="js-accordion-trigger flex w-full items-center justify-between gap-24 py-20 font-black lg:py-30">
+						<span class="flex items-center gap-24 text-left ~text-16/18 before:-translate-y-4 before:text-40 before:leading-none before:content-['Q'] before:gradient-text"><?php echo esc_html( $_post->post_title ); ?></span>
+						<span class="grid size-24 shrink-0 place-items-center transition-transform duration-300 ease-out-back after:icon-chevron-down after:text-brand-300 group-aria-expanded/button:rotate-180">
+						</span>
+					</button>
+					<div class="grid grid-rows-[1fr] overflow-hidden font-semibold transition-all duration-300 aria-hidden:grid-rows-[0fr]" aria-hidden="true">
+						<div class="min-h-0">
+							<div class="flex gap-24 pb-28 lg:pr-48 lg:pb-40 before:-translate-y-4 before:text-40 before:leading-none before:content-['A'] before:gradient-text">
+								<p class="mt-4"><?php echo esc_html( wp_strip_all_tags( get_the_content( null, false, $_post ) ) ); ?></p>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		<?php endforeach; ?>
-	</div>
-	<?php
-	button(
-		'よくあるご質問の一覧を見る',
-		array(
-			'href'  => esc_url( home_url( '/faq/' ) ),
-			'class' => 'mx-auto',
-		)
-	);
-	?>
+			<?php endforeach; ?>
+		</div>
+		<?php
+		button(
+			'よくあるご質問の一覧を見る',
+			array(
+				'href'  => esc_url( home_url( '/faq/' ) ),
+				'class' => 'mx-auto',
+			)
+		);
+		?>
 	</section>
 <?php endif; ?>
 
 <section class="col-10 mx-gutter lg:mx-auto">
 	<?php get_template_part( 'parts/button-cta' ); ?>
 </section>
-
-<!-- Halos (background) -->
-<div class="absolute inset-0 -z-10 grid place-items-center mix-blend-screen overflow-hidden w-[calc(var(--cw)*100)]">
-	<?php
-	foreach ( array(
-		'w-960 top-[119rem] -left-672 lg:w-[140vw] lg:top-[143vw] lg:left-[-50vw]',
-		'w-960 top-[256rem] -left-144 lg:w-[120vw] lg:top-[191vw] lg:left-[11vw]',
-		'w-960 top-[392rem] -left-620 lg:w-[120vw] lg:top-[318vw] lg:left-[-28vw]',
-		'hidden lg:block lg:w-[102vw] lg:top-[394vw] lg:left-[37vw]',
-		'w-960 top-[473rem] -left-176 lg:w-[130vw] lg:top-[515vw] lg:left-[-32vw]',
-	) as $classes ) :
-		?>
-		<img
-			class="<?php cx( 'absolute mix-blend-screen h-auto max-w-none', $classes ); ?>"
-			src="<?php echo esc_url( get_theme_file_uri( '/assets/images/halo.webp' ) ); ?>"
-			alt=""
-			width="800"
-			height="800"
-		>
-	<?php endforeach; ?>
-</div>
 
 <?php
 get_footer();
