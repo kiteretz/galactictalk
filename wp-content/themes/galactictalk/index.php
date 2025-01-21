@@ -454,13 +454,22 @@ if ( $testimonials ) :
 			<h2 class="uppercase leading-none ~text-40/120 gradient-text">Testimonials</h2>
 			<p class="inline-block bg-brand-500 font-bold ~rounded-4/8 ~px-12/16 ~py-4/8">受講生の声</p>
 		</hgroup>
-		<div class="splide__track w-full">
+		<div class="splide__track pt-40 w-full">
 			<ul class="splide__list">
 				<?php
 				$bg_colors = array( '#F748A2', '#00AF83', '#E9A124', '#F748A2', '#6E00C2', '#1B97D0' );
 				foreach ( $testimonials as $index => $_post ) :
 					?>
-					<li class="splide__slide flex h-320 odd:items-end lg:h-272" style="--bg-color: <?php echo esc_attr( $bg_colors[ $index % count( $bg_colors ) ] ); ?>">
+					<li class="
+						<?php
+						cx(
+							'splide__slide flex transition-transform duration-700 ease-out h-282 lg:h-234',
+							'[&.is-active]:-translate-y-40',
+							'has-[+.is-prev]:-translate-y-40',
+							'[.is-next+&]:-translate-y-40',
+						)
+						?>
+					" style="--bg-color: <?php echo esc_attr( $bg_colors[ $index % count( $bg_colors ) ] ); ?>">
 						<div class="flex aspect-[264/280] h-280 flex-col items-center gap-16 rounded-24 bg-[--bg-color] p-16 lg:aspect-[352/232] lg:h-232 lg:flex-row lg:items-start lg:gap-24 lg:p-24">
 							<?php if ( has_post_thumbnail( $_post ) ) : ?>
 								<div class="size-64 shrink-0 overflow-hidden rounded-full lg:size-90">
