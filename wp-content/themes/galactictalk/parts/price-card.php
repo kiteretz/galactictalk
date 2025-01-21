@@ -69,7 +69,7 @@ $args     = wp_parse_args( $args, $defaults );
 		'このプランを申し込む',
 		array(
 			'href'  => '#',
-			'class' => 'mx-auto w-full !min-w-0 self-end border-white !px-24 !py-16 text-white md:max-w-320',
+			'class' => 'mx-auto w-full !min-w-0 self-end border-white !px-24 !py-16 text-white before:!bg-white hover:!bg-white hover:!text-[--bg] md:max-w-320',
 		)
 	);
 	?>
