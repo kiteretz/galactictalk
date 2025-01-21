@@ -6,6 +6,17 @@ gsap.registerPlugin(ScrollTrigger);
 
 const mm = gsap.matchMedia();
 
+gsap.to(document.querySelector('.js-another-world'), {
+  scrollTrigger: {
+    trigger: 'html',
+    start: 'top top',
+    end: `${window.innerHeight} top`,
+    scrub: true,
+  },
+  translateY: '20%',
+  ease: 'linear',
+});
+
 document.querySelectorAll('.js-staggered').forEach((el) => {
   const children = el.children;
 
