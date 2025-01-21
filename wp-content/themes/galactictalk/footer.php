@@ -13,7 +13,7 @@
 <footer class="
 	<?php
 	cx(
-		'relative overflow-hidden from-transparent ~mt-80/120',
+		'relative overflow-hidden from-transparent',
 		'[background-image:linear-gradient(to_bottom,transparent_4.35rem,#3E1F56_4.35rem,#0000_100%)]',
 		'lg:[background-image:linear-gradient(to_bottom,transparent_30.2%,#3E1F56_30.2%,#0000_100%)]',
 	)

@@ -56,4 +56,4 @@
 <div id="js-backdrop" class="fixed inset-0 z-40 hidden lg:hidden"></div>
 
 <div class="lg:flex grow">
-	<main class="relative -mt-[--header-height] flex grow flex-col overflow-hidden ~gap-80/120 lg:flex" role="main">
+	<main class="relative -mt-[--header-height] flex grow flex-col overflow-hidden ~pb-80/120 ~gap-80/120 lg:flex" role="main">
