@@ -15,10 +15,16 @@ $args     = wp_parse_args( $args, $defaults );
 <section class="<?php cx( 'relative grid gap-40 overflow-hidden xl:pb-320 xl:gap-0 xl:h-1012', $args['class'] ); ?>">
 	<div class="w-[calc(var(--cw)*100)]">
 		<?php if ( is_front_page() ) : ?>
-			<hgroup class="grid justify-items-center gap-8 text-center ~px-24/32">
-				<h2 class="uppercase leading-none ~text-40/120 gradient-text">Popular Courses</h2>
-				<p class="inline-block bg-brand-500 font-bold ~rounded-4/8 ~px-12/16 ~py-4/8">人気コース</p>
-			</hgroup>
+			<?php
+			get_template_part(
+				'parts/hgroup',
+				null,
+				array(
+					'heading'    => array( 'Popular', 'Courses' ),
+					'subheading' => '人気コース',
+				)
+			);
+			?>
 		<?php else : ?>
 			<h2 class="grid container gap-16 font-barlow font-bold uppercase leading-none ~text-48/64 font-palt before:block before:h-6 before:w-40 before:rounded-full before:bg-brand-500">Courses</h2>
 		<?php endif; ?>

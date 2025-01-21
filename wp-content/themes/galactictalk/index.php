@@ -13,7 +13,11 @@ get_header();
 	<div class="relative z-10 mt-112 grid aspect-[360/600] lg:mt-[calc(var(--header-height)+2.45625rem)] lg:aspect-[1600/1000]">
 		<!-- Copy text -->
 		<div class="grid place-items-center content-start gap-10 py-15 ~px-8/40 *:col-span-full *:row-span-full lg:gap-0 lg:p-0">
-			<h1 class="text-center ~text-55/132 leading-none !tracking-tighter gradient-text lg:text-[8.75vw]">The Power<br>of Language</h1>
+			<h1 class="js-split-text grid text-center ~text-55/132 leading-none !tracking-tighter gradient-text lg:text-[8.75vw]">
+				<span class="sr-only">The Power of Language</span>
+				<?php split_text( 'The Power' ); ?>
+				<?php split_text( 'of Language' ); ?>
+			</h1>
 			<p class="text-center font-semibold leading-tight text-brand-300 gradient-text ~/lg:~text-11/28 ~pt-6/14 lg:text-[1.75vw] lg:leading-none">ワクワクする未来を話そう</p>
 		</div>
 		<!-- Main images -->
@@ -215,10 +219,17 @@ get_header();
 <!-- Features section -->
 <section class="relative mt-40 lg:~lg:~-mt-0/144 2xl:mt-[-9vw]">
 	<div class="z-10 grid place-items-center ~gap-40/72 lg:pt-160">
-		<hgroup class="grid justify-items-center gap-8 text-center ~px-24/32 ~/xs:~translate-y-280/380 xs:~sm:~translate-y-380/480 lg:translate-y-0">
-			<h2 class="uppercase leading-none ~text-40/120 gradient-text">Features</h2>
-			<p class="inline-block bg-brand-500 font-bold ~rounded-4/8 ~px-12/16 ~py-4/8">ギャラクティックトークの特徴</p>
-		</hgroup>
+		<?php
+		get_template_part(
+			'parts/hgroup',
+			null,
+			array(
+				'heading'    => array( 'Features' ),
+				'subheading' => 'ギャラクティックトークの特徴',
+				'class'      => '~/lg:~translate-y-280/380 lg:translate-y-0',
+			)
+		);
+		?>
 		<div class="grid ~gap-40/80">
 			<div class="flex flex-col-reverse lg:gap-40 lg:grid lg:[&>*]:col-span-full lg:[&>*]:row-span-full">
 				<!-- Introduction -->
@@ -408,10 +419,16 @@ $tutors = get_posts(
 if ( $tutors ) :
 	?>
 	<section class="splide js-tutor-carousel grid ~gap-40/80 xl:-mt-320">
-		<hgroup class="grid justify-items-center gap-8 text-center ~px-24/32">
-			<h2 class="uppercase leading-none ~text-40/120 gradient-text">Popular Tutors</h2>
-			<p class="inline-block bg-brand-500 font-bold ~rounded-4/8 ~px-12/16 ~py-4/8">人気講師</p>
-		</hgroup>
+		<?php
+		get_template_part(
+			'parts/hgroup',
+			null,
+			array(
+				'heading'    => array( 'Popular', 'Tutors' ),
+				'subheading' => '人気講師',
+			)
+		);
+		?>
 		<div class="splide__track -my-64 py-64 xl:grid xl:justify-items-center">
 			<ul class="js-staggered splide__list flex-row xl:!flex xl:max-w-container xl:flex-wrap xl:justify-center xl:gap-x-32 xl:gap-y-48">
 				<?php foreach ( $tutors as $_post ) : ?>
@@ -450,10 +467,16 @@ $testimonials = get_posts(
 if ( $testimonials ) :
 	?>
 	<section class="splide js-testimonial-carousel relative grid place-items-center ~gap-40/80">
-		<hgroup class="grid justify-items-center gap-8 text-center ~px-24/32">
-			<h2 class="uppercase leading-none ~text-40/120 gradient-text">Testimonials</h2>
-			<p class="inline-block bg-brand-500 font-bold ~rounded-4/8 ~px-12/16 ~py-4/8">受講生の声</p>
-		</hgroup>
+		<?php
+		get_template_part(
+			'parts/hgroup',
+			null,
+			array(
+				'heading'    => array( 'Testimonials' ),
+				'subheading' => '受講生の声',
+			)
+		);
+		?>
 		<div class="splide__track pt-40 w-full">
 			<ul class="splide__list">
 				<?php
@@ -496,10 +519,16 @@ if ( $testimonials ) :
 
 <!-- Plan & pricing section -->
 <section class="container grid place-items-center gap-40 px-24 lg:gap-80">
-	<hgroup class="grid justify-items-center gap-8 text-center ~px-24/32">
-		<h2 class="uppercase leading-none ~text-40/120 gradient-text">Plans & Pricing</h2>
-		<p class="inline-block bg-brand-500 font-bold ~rounded-4/8 ~px-12/16 ~py-4/8">料金プラン</p>
-	</hgroup>
+	<?php
+	get_template_part(
+		'parts/hgroup',
+		null,
+		array(
+			'heading'    => array( 'Plans &', 'Pricing' ),
+			'subheading' => '料金プラン',
+		)
+	);
+	?>
 	<div class="grid ~gap-24/40">
 		<div class="js-staggered grid gap-20 lg:grid-cols-3 xl:gap-32">
 			<?php
@@ -619,10 +648,16 @@ $magazine = get_posts(
 if ( $magazine ) :
 	?>
 	<section class="splide js-magazine-carousel relative grid ~gap-40/80 lg:px-0">
-		<hgroup class="grid justify-items-center gap-8 text-center ~px-24/32">
-			<h2 class="uppercase leading-none ~text-40/120 gradient-text">Magazine</h2>
-			<p class="inline-block bg-brand-500 font-bold ~rounded-4/8 ~px-12/16 ~py-4/8">マガジン</p>
-		</hgroup>
+		<?php
+		get_template_part(
+			'parts/hgroup',
+			null,
+			array(
+				'heading'    => array( 'Magazine' ),
+				'subheading' => 'マガジン',
+			)
+		);
+		?>
 		<div class="splide__track -my-64 py-64 xl:-mb-80 xl:grid xl:justify-items-center">
 			<ul class="js-staggered splide__list max-w-container xl:!flex xl:flex-row xl:flex-wrap">
 				<?php
@@ -676,10 +711,16 @@ $faqs = get_posts(
 if ( $faqs ) :
 	?>
 	<section class="w-col-10 mx-auto grid place-items-center gap-40 lg:gap-80">
-		<hgroup class="grid justify-items-center gap-8 text-center ~px-24/32">
-		<h2 class="uppercase leading-none ~text-40/120 gradient-text">FAQ</h2>
-			<p class="inline-block bg-brand-500 font-bold ~rounded-4/8 ~px-12/16 ~py-4/8">よくあるご質問</p>
-		</hgroup>
+		<?php
+		get_template_part(
+			'parts/hgroup',
+			null,
+			array(
+				'heading'    => array( 'FAQ' ),
+				'subheading' => 'よくあるご質問',
+			)
+		);
+		?>
 		<div class="grid">
 		<?php foreach ( $faqs as $_post ) : ?>
 			<div class="js-accordion group/button grid border-b-px border-brand-400" aria-expanded="false">
