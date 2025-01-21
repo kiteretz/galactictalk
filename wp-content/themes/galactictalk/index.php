@@ -199,9 +199,9 @@ get_header();
 								<div class="basis-1/3">
 									<img class="h-full w-full object-cover" src="<?php echo esc_url( get_the_post_thumbnail_url( $_post, 'full' ) ); ?>" alt="" width="120" height="100">
 								</div>
-								<div class="flex flex-col basis-2/3 ~px-4/8 ~py-12/16 tracking-tighter 2xl:px-[0.5vw] 2xl:py-[1vw]">
-									<time datetime="<?php echo esc_html( get_the_date( 'Y.m.d', $_post ) ); ?>" class="min-w-0 font-barlow ~lg/2xl:~text-12/13 2xl:text-[0.8125vw]"><?php echo esc_html( get_the_date( 'Y.m.d', $_post ) ); ?></time>
-									<div class="line-clamp-2 font-medium leading-normal 2xl:text-[1vw]"><?php echo esc_html( $_post->post_title ); ?></div>
+								<div class="flex flex-col basis-2/3 ~px-4/8 ~py-12/16 tracking-tighter 2xl:px-8 2xl:py-16">
+									<time datetime="<?php echo esc_html( get_the_date( 'Y.m.d', $_post ) ); ?>" class="min-w-0 font-barlow ~lg/2xl:~text-12/13 2xl:text-13"><?php echo esc_html( get_the_date( 'Y.m.d', $_post ) ); ?></time>
+									<div class="line-clamp-2 font-medium leading-normal 2xl:text-16"><?php echo esc_html( $_post->post_title ); ?></div>
 								</div>
 							</a>
 						</li>
