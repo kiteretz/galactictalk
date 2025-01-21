@@ -10,6 +10,7 @@
  */
 require_once 'lib/clsx.php';
 require_once 'lib/button.php';
+require_once 'lib/split-text.php';
 
 /**
  * Templates.
