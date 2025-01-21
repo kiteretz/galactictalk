@@ -85,3 +85,38 @@ document.querySelectorAll('.js-draggable-course').forEach((el) => {
     };
   });
 });
+
+document.querySelectorAll('.js-split-text').forEach((el) => {
+  const nextElement = el.nextElementSibling;
+  const characters = el.querySelectorAll('[aria-hidden="true"] span');
+
+  if (characters.length === 0) return;
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: el,
+      start: 'top 70%',
+    },
+  });
+
+  tl.from(characters, {
+    yPercent: 100,
+    duration: 0.8,
+    stagger: 0.03,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: el,
+      start: 'top 70%',
+    },
+  });
+
+  if (nextElement) {
+    tl.from(nextElement, {
+      yPercent: 16,
+      opacity: 0,
+      duration: 0.7,
+      ease: 'power3.out',
+      delay: 0.8,
+    });
+  }
+});
