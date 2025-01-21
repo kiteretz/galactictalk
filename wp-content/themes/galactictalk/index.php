@@ -407,7 +407,7 @@ $tutors = get_posts(
 
 if ( $tutors ) :
 	?>
-	<section class="splide js-tutor-carousel grid ~gap-40/80">
+	<section class="splide js-tutor-carousel grid ~gap-40/80 xl:-mt-320">
 		<hgroup class="grid justify-items-center gap-8 text-center ~px-24/32">
 			<h2 class="uppercase leading-none ~text-40/120 gradient-text">Popular Tutors</h2>
 			<p class="inline-block bg-brand-500 font-bold ~rounded-4/8 ~px-12/16 ~py-4/8">人気講師</p>

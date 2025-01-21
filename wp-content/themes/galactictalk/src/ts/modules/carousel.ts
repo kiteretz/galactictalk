@@ -101,6 +101,7 @@ document.querySelectorAll<HTMLElement>('.js-news-carousel').forEach((el) => {
 document.querySelectorAll<HTMLElement>('.js-course-carousel').forEach((el) => {
   new Splide(el, {
     gap: '1.5rem',
+    autoplay: true,
     breakpoints: {
       1280: {
         destroy: true,

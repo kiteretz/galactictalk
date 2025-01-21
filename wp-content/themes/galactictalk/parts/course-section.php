@@ -12,7 +12,7 @@ $defaults = array(
 $args     = wp_parse_args( $args, $defaults );
 ?>
 
-<section class="<?php cx( 'relative grid gap-40 overflow-hidden xl:gap-0 xl:h-1012', $args['class'] ); ?>">
+<section class="<?php cx( 'relative grid gap-40 overflow-hidden xl:pb-320 xl:gap-0 xl:h-1012', $args['class'] ); ?>">
 	<div class="w-[calc(var(--cw)*100)]">
 		<?php if ( is_front_page() ) : ?>
 			<hgroup class="grid justify-items-center gap-8 text-center ~px-24/32">
@@ -36,31 +36,37 @@ $args     = wp_parse_args( $args, $defaults );
 			?>
 		">
 			<ul class="splide__list xl:!grid xl:h-full xl:w-full xl:rotate-[-12deg] xl:place-items-center">
-				<?php foreach ( $args['courses'] as $index => $_post ) : ?>
-					<li class="
-						<?php
-						cx(
-							'splide__slide',
-							'xl:absolute xl:rotate-[--rotate]',
-							// Rotate each course per 6 degrees.
-							'xl:[--rotate:calc(var(--index)*6deg)]',
-							// Calculate the angle for each course.
-							'xl:[--angle:calc(var(--rotate)-90deg)]',
-							// Each position is calculated with trigonometric functions.
-							'xl:translate-x-[calc(cos(var(--angle))*var(--radius))]',
-							'xl:translate-y-[calc(sin(var(--angle))*var(--radius))]',
-						)
+				<?php
+				for ( $i = 0; $i < 12; $i++ ) :
+					foreach ( $args['courses'] as $index => $_post ) :
 						?>
-					" style="--index: <?php echo esc_attr( $index ); ?>">
+						<li class="
+							<?php
+							cx(
+								'splide__slide',
+								'xl:absolute xl:rotate-[--rotate]',
+								// Rotate each course per 6 degrees.
+								'xl:[--rotate:calc(var(--index)*6deg)]',
+								// Calculate the angle for each course.
+								'xl:[--angle:calc(var(--rotate)-90deg)]',
+								// Each position is calculated with trigonometric functions.
+								'xl:translate-x-[calc(cos(var(--angle))*var(--radius))]',
+								'xl:translate-y-[calc(sin(var(--angle))*var(--radius))]',
+							)
+							?>
+						" style="--index: <?php echo esc_attr( $index + ( $i * count( $args['courses'] ) ) ); ?>">
+							<?php
+							get_template_part(
+								'parts/course-card',
+								null,
+								array( 'post' => $_post )
+							);
+							?>
+						</li>
 						<?php
-						get_template_part(
-							'parts/course-card',
-							null,
-							array( 'post' => $_post )
-						);
-						?>
-					</li>
-				<?php endforeach; ?>
+					endforeach;
+				endfor;
+				?>
 			</ul>
 		</div>
 	</div>
