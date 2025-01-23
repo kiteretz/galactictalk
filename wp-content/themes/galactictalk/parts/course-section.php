@@ -41,12 +41,12 @@ $args     = wp_parse_args( $args, $defaults );
 			)
 			?>
 		">
-			<ul class="splide__list xl:!grid xl:h-full xl:w-full xl:rotate-[-12deg] xl:place-items-center">
+			<div class="splide__list xl:!grid xl:h-full xl:w-full xl:rotate-[-12deg] xl:place-items-center">
 				<?php
 				for ( $i = 0; $i < 12; $i++ ) :
 					foreach ( $args['courses'] as $index => $_post ) :
 						?>
-						<li class="
+						<div class="
 							<?php
 							cx(
 								'splide__slide',
@@ -68,12 +68,12 @@ $args     = wp_parse_args( $args, $defaults );
 								array( 'post' => $_post )
 							);
 							?>
-						</li>
+						</div>
 						<?php
 					endforeach;
 				endfor;
 				?>
-			</ul>
+			</div>
 		</div>
 	</div>
 	<div class="z-10 xl:-mt-200 xl:w-[calc(var(--cw)*100)]">
