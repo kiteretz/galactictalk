@@ -747,9 +747,9 @@ if ( $faqs ) :
 			)
 		);
 		?>
-		<ul role="tree" class="grid">
+		<ul class="grid">
 			<?php foreach ( $faqs as $_post ) : ?>
-				<li role="treeitem" class="js-accordion group/button grid border-b-px border-brand-400" aria-expanded="false">
+				<li class="js-accordion group/button grid border-b-px border-brand-400" aria-expanded="false">
 					<button class="js-accordion-trigger flex w-full items-center justify-between gap-24 py-20 font-black lg:py-30">
 						<span class="flex items-center gap-24 text-left ~text-16/18 before:-translate-y-4 before:text-40 before:leading-none before:content-['Q'] before:gradient-text"><?php echo esc_html( $_post->post_title ); ?></span>
 						<span class="grid size-24 shrink-0 place-items-center transition-transform duration-300 ease-out-back after:w-full after:icon-chevron-down after:text-brand-300 group-aria-expanded/button:rotate-180">

@@ -60,12 +60,16 @@ $args     = wp_parse_args( $args, $defaults );
 								'xl:translate-y-[calc(sin(var(--angle))*var(--radius))]',
 							)
 							?>
-						" style="--index: <?php echo esc_attr( $index + ( $i * count( $args['courses'] ) ) ); ?>">
+						" style="--index: <?php echo esc_attr( $index + ( $i * count( $args['courses'] ) ) ); ?>"
+						>
 							<?php
 							get_template_part(
 								'parts/course-card',
 								null,
-								array( 'post' => $_post )
+								array(
+									'post'        => $_post,
+									'aria-hidden' => $i > 0,
+								)
 							);
 							?>
 						</div>
