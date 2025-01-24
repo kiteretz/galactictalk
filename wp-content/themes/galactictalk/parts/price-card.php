@@ -24,7 +24,7 @@ $args     = wp_parse_args( $args, $defaults );
 	<div class="grid gap-16">
 		<div class="relative mb-10 rounded-8 bg-white p-10 text-center font-bold leading-none text-brand-950">
 			<?php echo esc_html( $args['description'] ); ?>
-			<svg class="absolute left-1/2 bottom-1 -translate-x-1/2 translate-y-[95%] w-14 h-10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 9.74512V0.745117H0.5L7 9.74512Z" fill="white"/><path d="M7 9.74512V0.745117H13.5L7 9.74512Z" fill="white"/></svg>
+			<svg aria-hidden="true" class="absolute left-1/2 bottom-1 -translate-x-1/2 translate-y-[95%] w-14 h-10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 9.74512V0.745117H0.5L7 9.74512Z" fill="white"/><path d="M7 9.74512V0.745117H13.5L7 9.74512Z" fill="white"/></svg>
 		</div>
 		<div class="flex flex-col gap-20 md:flex-row md:justify-center md:gap-16 lg:flex-col lg:gap-32">
 			<div class="grid basis-5/12 gap-16 text-center">

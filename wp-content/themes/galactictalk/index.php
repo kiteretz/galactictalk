@@ -219,9 +219,9 @@ get_header();
 					</div>
 				</div>
 				<div class="splide__track overflow-visible lg:translate-x-28">
-					<ul class="splide__list">
+					<div class="splide__list">
 						<?php foreach ( $news as $index => $_post ) : ?>
-							<li class="splide__slide -my-4 flex w-full justify-center transition-[transform] duration-300 ease-in-out even:[rotate:4deg]" style="z-index: <?php echo esc_attr( count( $news ) - $index ); ?>">
+							<div class="splide__slide -my-4 flex w-full justify-center transition-[transform] duration-300 ease-in-out even:[rotate:4deg]" style="z-index: <?php echo esc_attr( count( $news ) - $index ); ?>">
 								<a href="<?php echo esc_url( get_the_permalink( $_post ) ); ?>" class="my-4 flex h-full max-h-100 w-[calc(100%-calc(var(--gutter)*2))] overflow-hidden rounded-16 bg-white text-brand-900 shadow ~gap-4/8 2xl:my-[0.25vw] 2xl:rounded-[1vw]">
 									<div class="basis-1/3">
 										<img class="h-full w-full object-cover" src="<?php echo esc_url( get_the_post_thumbnail_url( $_post, 'full' ) ); ?>" alt="" width="120" height="100">
@@ -231,9 +231,9 @@ get_header();
 										<div class="line-clamp-2 font-medium leading-normal 2xl:text-15"><?php echo esc_html( $_post->post_title ); ?></div>
 									</div>
 								</a>
-							</li>
+							</div>
 						<?php endforeach; ?>
-					</ul>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -456,9 +456,9 @@ if ( $tutors ) :
 		);
 		?>
 		<div class="splide__track -my-64 py-64 xl:grid xl:justify-items-center">
-			<ul class="js-staggered splide__list flex-row xl:!flex xl:max-w-container xl:flex-wrap xl:justify-center xl:gap-x-32 xl:gap-y-48">
+			<div class="js-staggered splide__list flex-row xl:!flex xl:max-w-container xl:flex-wrap xl:justify-center xl:gap-x-32 xl:gap-y-48">
 				<?php foreach ( $tutors as $_post ) : ?>
-					<li class="splide__slide">
+					<div class="splide__slide">
 						<?php
 						get_template_part(
 							'parts/tutor-card',
@@ -466,9 +466,9 @@ if ( $tutors ) :
 							array( 'post' => $_post )
 						);
 						?>
-					</li>
+					</div>
 				<?php endforeach; ?>
-			</ul>
+			</div>
 		</div>
 		<?php
 		button(
@@ -504,12 +504,12 @@ if ( $testimonials ) :
 		);
 		?>
 		<div class="splide__track pt-40 w-full">
-			<ul class="splide__list">
+			<div class="splide__list">
 				<?php
 				$bg_colors = array( '#F748A2', '#00AF83', '#E9A124', '#F748A2', '#6E00C2', '#1B97D0' );
 				foreach ( $testimonials as $index => $_post ) :
 					?>
-					<li class="
+					<div class="
 						<?php
 						cx(
 							'splide__slide flex transition-transform duration-700 ease-out h-282 lg:h-234',
@@ -530,9 +530,9 @@ if ( $testimonials ) :
 								<p class="line-clamp-4"><?php echo esc_html( wp_strip_all_tags( get_the_content( null, false, $_post ) ) ); ?></p>
 							</div>
 						</div>
-					</li>
+					</div>
 				<?php endforeach; ?>
-			</ul>
+			</div>
 		</div>
 		<?php
 		button(
@@ -685,12 +685,12 @@ if ( $magazine ) :
 		);
 		?>
 		<div class="splide__track -my-64 py-64 xl:-mb-80 xl:grid xl:justify-items-center">
-			<ul class="js-staggered splide__list max-w-container xl:!flex xl:flex-row xl:flex-wrap">
+			<div class="js-staggered splide__list max-w-container xl:!flex xl:flex-row xl:flex-wrap">
 				<?php
 				foreach ( $magazine as $index => $_post ) :
 					if ( 0 === $index ) :
 						?>
-						<li class="splide__slide min-w-264 basis-1/3 xl:mb-120 xl:basis-full xl:px-29">
+						<div class="splide__slide min-w-264 basis-1/3 xl:mb-120 xl:basis-full xl:px-29">
 							<?php
 							get_template_part(
 								'parts/magazine-card',
@@ -701,9 +701,9 @@ if ( $magazine ) :
 								)
 							);
 							?>
-						</li>
+						</div>
 					<?php else : ?>
-						<li class="splide__slide min-w-264 basis-1/3 xl:px-29">
+						<div class="splide__slide min-w-264 basis-1/3 xl:px-29">
 							<?php
 							get_template_part(
 								'parts/magazine-card',
@@ -711,10 +711,10 @@ if ( $magazine ) :
 								array( 'post' => $_post )
 							);
 							?>
-						</li>
+						</div>
 					<?php endif; ?>
 				<?php endforeach; ?>
-			</ul>
+			</div>
 		</div>
 		<?php
 		button(
@@ -747,9 +747,9 @@ if ( $faqs ) :
 			)
 		);
 		?>
-		<div class="grid">
+		<ul class="grid">
 			<?php foreach ( $faqs as $_post ) : ?>
-				<div class="js-accordion group/button grid border-b-px border-brand-400" aria-expanded="false">
+				<li class="js-accordion group/button grid border-b-px border-brand-400" aria-expanded="false">
 					<button class="js-accordion-trigger flex w-full items-center justify-between gap-24 py-20 font-black lg:py-30">
 						<span class="flex items-center gap-24 text-left ~text-16/18 before:-translate-y-4 before:text-40 before:leading-none before:content-['Q'] before:gradient-text"><?php echo esc_html( $_post->post_title ); ?></span>
 						<span class="grid size-24 shrink-0 place-items-center transition-transform duration-300 ease-out-back after:w-full after:icon-chevron-down after:text-brand-300 group-aria-expanded/button:rotate-180">
@@ -762,9 +762,9 @@ if ( $faqs ) :
 							</div>
 						</div>
 					</div>
-				</div>
+				</li>
 			<?php endforeach; ?>
-		</div>
+		</ul>
 		<?php
 		button(
 			'よくあるご質問の一覧を見る',

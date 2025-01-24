@@ -41,12 +41,12 @@ $args     = wp_parse_args( $args, $defaults );
 			)
 			?>
 		">
-			<ul class="splide__list xl:!grid xl:h-full xl:w-full xl:rotate-[-12deg] xl:place-items-center">
+			<div class="splide__list xl:!grid xl:h-full xl:w-full xl:rotate-[-12deg] xl:place-items-center">
 				<?php
 				for ( $i = 0; $i < 12; $i++ ) :
 					foreach ( $args['courses'] as $index => $_post ) :
 						?>
-						<li class="
+						<div class="
 							<?php
 							cx(
 								'splide__slide',
@@ -60,20 +60,24 @@ $args     = wp_parse_args( $args, $defaults );
 								'xl:translate-y-[calc(sin(var(--angle))*var(--radius))]',
 							)
 							?>
-						" style="--index: <?php echo esc_attr( $index + ( $i * count( $args['courses'] ) ) ); ?>">
+						" style="--index: <?php echo esc_attr( $index + ( $i * count( $args['courses'] ) ) ); ?>"
+						>
 							<?php
 							get_template_part(
 								'parts/course-card',
 								null,
-								array( 'post' => $_post )
+								array(
+									'post'        => $_post,
+									'aria-hidden' => $i > 0,
+								)
 							);
 							?>
-						</li>
+						</div>
 						<?php
 					endforeach;
 				endfor;
 				?>
-			</ul>
+			</div>
 		</div>
 	</div>
 	<div class="z-10 xl:-mt-200 xl:w-[calc(var(--cw)*100)]">
