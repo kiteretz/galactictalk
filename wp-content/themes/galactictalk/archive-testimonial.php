@@ -28,9 +28,9 @@ if ( $testimonials ) :
 			</div>
 			<div class="z-10 container mt-224 grid justify-self-end items-start lg:mt-auto lg:pb-142">
 				<div class="grid font-barlow uppercase">
-					<p class="mb-8/0 font-bold leading-[1.2] ~text-40/120">Testimonials</p>
-					<h1 class="mb-2 w-fit bg-brand-600 leading-relaxed lg:leading-none ~text-14/18 ~rounded-2/4 font-bold ~p-4/8">受講生の声</h1>
-					<div class="font-bold ~mt-16/32">受講生アンケートでいただいた声をご紹介いたします。</div>
+					<p class="font-bold leading-[1.2] ~text-40/120">Testimonials</p>
+					<h1 class="mt-8/0 w-fit bg-brand-600 leading-relaxed lg:leading-none ~text-14/18 ~rounded-2/4 font-bold ~p-4/8">受講生の声</h1>
+					<div class="font-bold ~mt-16/40">受講生アンケートでいただいた声をご紹介いたします。</div>
 				</div>
 			</div>
 		</div>
