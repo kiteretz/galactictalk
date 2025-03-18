@@ -2,4 +2,5 @@
 
 <?php get_template_part( 'template-parts/loop', 'archive' ); ?>
 
-<?php get_footer();
+<?php
+get_footer();
