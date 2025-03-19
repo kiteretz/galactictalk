@@ -7,7 +7,8 @@
 
 get_header(); ?>
 
-<!-- TODO: メインビジュアルコンポーネントを作成する -->
+
+<!-- TODO: メインビジュアル確定したらコーディングする -->
 <div class="relative mb-24 grid *:col-span-full *:row-span-full lg:mb-0">
 	<div class="relative ~/lg:~h-400/600 overflow-hidden lg:h-[min(calc(100vw*0.75),37.5rem)]">
 		<img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/thumbnail_magazine.jpg' ) ); ?>" alt="" class='h-full w-full object-cover' />
@@ -32,7 +33,7 @@ get_header(); ?>
 				<a href="<?php echo esc_url( get_the_permalink() ); ?>" class="group marker:selection:after:flex flex-col h-fit *:shrink-0">
 					<div class="aspect-[352/198] overflow-hidden rounded-16">
 						<img
-							class="size-full object-cover transition-transform duration-500 group-hover:scale-[1.05] group-active:scale-[1.05]"
+							class="size-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-[1.05] group-active:scale-[1.05]"
 							src="<?php echo esc_url( get_the_post_thumbnail_url() ); ?>"
 							alt=""
 							width="384"
