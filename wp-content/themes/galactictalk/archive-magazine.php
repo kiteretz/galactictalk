@@ -32,10 +32,10 @@ get_header(); ?>
 		?>
 
 		<div class="shadow-[0_0_40_0_rgba(49,25,90,0.80)_inset,0_2px_32px_0_rgba(188,94,239,0.40)]">
-			<a href="<?php echo esc_url( get_the_permalink() ); ?>" class="flex flex-col h-fit *:shrink-0">
+			<a href="<?php echo esc_url( get_the_permalink() ); ?>" class="group marker:selection:after:flex flex-col h-fit *:shrink-0">
 				<div class="aspect-[352/198] overflow-hidden rounded-16">
 					<img
-						class="size-full object-cover"
+						class="size-full object-cover transition-transform duration-500 group-hover:scale-[1.05]"
 						src="<?php echo esc_url( get_the_post_thumbnail_url() ); ?>"
 						alt=""
 						width="384"
