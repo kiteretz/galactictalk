@@ -31,8 +31,8 @@ get_header(); ?>
 		$tags = get_the_terms( get_the_ID(), 'magazine_tag' );
 		?>
 
-		<div class="">
-			<a href="<?php echo esc_url( get_the_permalink() ); ?>" class="flex flex-col h-fit *:shrink-0 ~/xl:~rounded-16/24">
+		<div class="shadow-[0_0_40_0_rgba(49,25,90,0.80)_inset,0_2px_32px_0_rgba(188,94,239,0.40)]">
+			<a href="<?php echo esc_url( get_the_permalink() ); ?>" class="flex flex-col h-fit *:shrink-0">
 				<div class="aspect-[352/198] overflow-hidden rounded-16">
 					<img
 						class="size-full object-cover"
