@@ -5,14 +5,18 @@
  * @package GalacticTalk
  */
 
-get_header(); ?>
+get_header();
 
-
-<!-- TODO: メインビジュアル確定したらコーディングする -->
-<div>
-	<p class="uppercase">Magazine</p>
-	<h1>マガジン</h1>
-</div>
+get_template_part(
+	'parts/archive-page-header',
+	null,
+	array(
+		'title'    => 'Magazine',
+		'subtitle' => 'マガジン',
+		'image'    => 'mv-news.webp',
+	)
+);
+?>
 
 <?php if ( have_posts() ) : ?>
 	<div class="container grid ~gap-x-16/32 ~gap-y-40/80 lg:grid-cols-3">
