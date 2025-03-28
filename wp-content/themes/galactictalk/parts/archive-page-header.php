@@ -11,13 +11,9 @@ $defaults = array(
 	'image'    => '',
 );
 $args     = wp_parse_args( $args, $defaults );
-
-// <main>にgapの指定があって、MVとコンテンツの間に80px->120pxの余白あり。
-// lg:~mb-[-10.5rem]/[-18rem]の部分で対応している
-// デザイン上のmargin-bottom:-168pxと、lgから0px->120pxを足している
 ?>
 
-<div class="grid *:col-span-full *:row-span-full lg:~mb-[-10.5rem]/[-18rem]">
+<div class="grid mb-80 *:col-span-full *:row-span-full lg:~mb-0/[-10.5rem]">
 	<div class="relative -z-10 ~h-[16.875rem]/800 overflow-hidden">
 		<?php if ( $args['image'] ) : ?>
 			<img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/' . $args['image'] ) ); ?>" alt="" class="object-cover size-full">
