@@ -13,7 +13,7 @@ get_template_part(
 	array(
 		'title'    => 'Magazine',
 		'subtitle' => 'マガジン',
-		'image'    => 'mv-news.webp',
+		'image'    => 'mv-magazine.webp',
 	)
 );
 ?>
