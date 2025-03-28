@@ -11,7 +11,7 @@ get_header();
 <div>
 	<?php
 	get_template_part(
-		'parts/archive-page-header',
+		'parts/page-header',
 		null,
 		array(
 			'title'    => 'Magazine',
