@@ -13,6 +13,11 @@ while ( have_posts() ) :
 
 	<div class="editor-styles-wrapper min-h-dvh">
 		<?php
+		// page-headerコースでの分岐テスト中.
+		get_template_part(
+			'parts/page-header'
+		);
+		/*
 		$english_title = get_field( 'english_title' );
 		$tagline       = get_field( 'tagline' );
 		$tags          = get_the_terms( get_the_ID(), 'course_tag' );
@@ -101,7 +106,8 @@ while ( have_posts() ) :
 					</div>
 				</div>
 			</div>
-		<?php endif; ?>
+		<?php endif; */
+		?>
 
 		<div class="block-editor-block-list__layout is-root-container is-layout-flow">
 			<?php the_content(); ?>
