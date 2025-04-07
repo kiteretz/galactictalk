@@ -6,6 +6,7 @@
  */
 
 $is_course_single = is_singular( 'course' );
+$is_tutor_single  = is_singular( 'tutor' );
 
 // Get course data.
 $english_title = get_field( 'english_title' );
@@ -27,7 +28,7 @@ $args     = wp_parse_args( $args, $defaults );
 <div class="<?php cx( 'grid mb-80 *:col-span-full *:row-span-full', $is_course_single ? '' : 'lg:~mb-0/[-10.5rem]' ); ?>">
 	<div class="<?php cx( 'relative overflow-hidden', $is_course_single ? '~h-[35.75rem]/800' : '-z-10 ~h-[16.875rem]/800' ); ?>">
 		<?php
-		if ( $is_course_single ) :
+		if ( $is_course_single || $is_tutor_single ) :
 			the_post_thumbnail( 'full', array( 'class' => 'h-full w-full object-cover lg:h-auto lg:translate-y-[-10%]' ) );
 		elseif ( $args['image'] ) :
 			?>
@@ -37,16 +38,16 @@ $args     = wp_parse_args( $args, $defaults );
 	</div>
 	<div class="z-10 container h-fit ~pt-200/240 lg:pb-92">
 		<?php if ( $is_course_single ) : ?>
-			<div class="grid gap-16 font-barlow uppercase">
+			<div class="grid font-barlow uppercase">
 				<?php if ( $english_title ) : ?>
-					<p class="font-bold leading-none ~text-40/120"><?php echo esc_html( $english_title ); ?></p>
+					<p class="font-bold leading-none ~mb-12/16 ~text-40/120"><?php echo esc_html( $english_title ); ?></p>
 				<?php endif; ?>
 				<h1 class="mb-2 w-fit bg-brand-500 leading-relaxed ~text-15/16 ~rounded-4/8 ~px-12/16 ~py-4/8"><?php the_title(); ?></h1>
 				<?php if ( $tagline ) : ?>
-					<div class="font-bold leading-normal ~text-32/48"><?php echo esc_html( $tagline ); ?></div>
+					<div class="font-bold leading-normal ~my-20/32 ~text-32/48"><?php echo esc_html( $tagline ); ?></div>
 				<?php endif; ?>
 			</div>
-			<div class="grid grid-cols-1 gap-32 items-start lg:grid-cols-[repeat(2,auto)]">
+			<div class="grid grid-cols-1 ~gap-16/24 items-start lg:grid-cols-[repeat(2,auto)]">
 				<div class="grid ~gap-16/24">
 					<?php if ( $tags && ! is_wp_error( $tags ) ) : ?>
 						<div class="flex gap-8">
