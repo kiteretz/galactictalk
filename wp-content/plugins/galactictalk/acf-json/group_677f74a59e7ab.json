@@ -31,6 +31,13 @@
                 "operator": "==",
                 "value": "course"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "tutor"
+            }
         ]
     ],
     "menu_order": 0,
@@ -42,5 +49,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1736406305
+    "modified": 1744091444
 }

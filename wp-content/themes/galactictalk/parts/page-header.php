@@ -5,16 +5,23 @@
  * @package GalacticTalk
  */
 
+// Check if the current post type is course or tutor.
 $is_course_single = is_singular( 'course' );
 $is_tutor_single  = is_singular( 'tutor' );
 
-// Get course data.
+// Get course/tutor data.
 $english_title = get_field( 'english_title' );
 $tagline       = get_field( 'tagline' );
-$tags          = get_the_terms( get_the_ID(), 'course_tag' );
 $time          = get_field( 'time' );
 $tutor         = get_field( 'tutor' );
 $resource      = get_field( 'resource' );
+
+// Get the tags based on the post type.
+if ( $is_course_single ) {
+	$tags = get_the_terms( get_the_ID(), 'course_tag' );
+} elseif ( $is_tutor_single ) {
+	$tags = get_the_terms( get_the_ID(), 'tutor_tag' );
+}
 
 // Get the arguments.
 $defaults = array(
@@ -26,7 +33,15 @@ $args     = wp_parse_args( $args, $defaults );
 ?>
 
 <div class="<?php cx( 'grid mb-80 *:col-span-full *:row-span-full', $is_course_single ? '' : 'lg:~mb-0/[-10.5rem]' ); ?>">
-	<div class="<?php cx( 'relative overflow-hidden', $is_course_single ? '~h-[35.75rem]/800' : '-z-10 ~h-[16.875rem]/800' ); ?>">
+	<div class="
+	<?php
+	cx(
+		'relative overflow-hidden',
+		$is_course_single ? '~h-[35.75rem]/800' :
+			( '~h-[16.875rem]/800' . ( $is_tutor_single ? '' : ' -z-10' ) )
+	);
+	?>
+	">
 		<?php
 		if ( $is_course_single || $is_tutor_single ) :
 			the_post_thumbnail( 'full', array( 'class' => 'h-full w-full object-cover lg:h-auto lg:translate-y-[-10%]' ) );
@@ -37,7 +52,7 @@ $args     = wp_parse_args( $args, $defaults );
 		<div class="absolute inset-0 bg-gradient-to-b from-transparent from-70% to-black lg:from-50%"></div>
 	</div>
 	<div class="z-10 container h-fit ~pt-200/240 lg:pb-92">
-		<?php if ( $is_course_single ) : ?>
+		<?php if ( $is_course_single || $is_tutor_single ) : ?>
 			<div class="grid font-barlow uppercase">
 				<?php if ( $english_title ) : ?>
 					<p class="font-bold leading-none ~mb-12/16 ~text-40/120"><?php echo esc_html( $english_title ); ?></p>
