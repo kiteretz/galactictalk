@@ -5,6 +5,9 @@
  * @package GalacticTalk
  */
 
+// ID of the current post.
+$current_id = get_the_ID();
+
 // Check if the current post type is course or tutor.
 $is_course_single = is_singular( 'course' );
 $is_tutor_single  = is_singular( 'tutor' );
@@ -22,6 +25,21 @@ if ( $is_course_single ) {
 } elseif ( $is_tutor_single ) {
 	$tags = get_the_terms( get_the_ID(), 'tutor_tag' );
 }
+
+// Get the courses.
+$courses = get_posts(
+	array(
+		'post_type'      => 'course',
+		'posts_per_page' => -1,
+		'meta_query'     => array(
+			array(
+				'key'     => 'tutor',
+				'value'   => get_the_ID(),
+				'compare' => '=',
+			),
+		),
+	)
+);
 
 // Get the arguments.
 $defaults = array(
@@ -62,7 +80,7 @@ $args     = wp_parse_args( $args, $defaults );
 					<div class="font-bold leading-normal ~my-20/32 ~text-32/48"><?php echo esc_html( $tagline ); ?></div>
 				<?php endif; ?>
 			</div>
-			<div class="grid grid-cols-1 ~gap-16/24 items-start lg:grid-cols-[repeat(2,auto)]">
+			<div class="<?php cx( 'grid grid-cols-1 ~gap-16/24 items-start', $is_course_single ? 'lg:grid-cols-[repeat(2,auto)]' : '' ); ?>">
 				<div class="grid ~gap-16/24">
 					<?php if ( $tags && ! is_wp_error( $tags ) ) : ?>
 						<div class="flex gap-8">
@@ -97,7 +115,9 @@ $args     = wp_parse_args( $args, $defaults );
 						<?php endif; ?>
 						<?php
 						if ( $tutor ) :
-							$tutor = explode( ' ', $tutor, 2 );
+							// Get the tutor's name.
+							$tutor_name = get_post_meta( $tutor->ID, 'english_title', true );
+							$tutor_name = explode( ' ', $tutor_name, 2 );
 							?>
 							<div class="grid place-items-center">
 								<div class="w-48 h-48">
@@ -105,10 +125,8 @@ $args     = wp_parse_args( $args, $defaults );
 								</div>
 								<div class="flex min-h-[5.3125rem] items-center font-barlow font-extrabold uppercase leading-none">
 									<span class="flex flex-col items-center gap-4">
-										<span class="~md:~text-24/32"><?php echo esc_html( $tutor[0] ); ?></span>
-										<?php if ( isset( $tutor[1] ) ) : ?>
-											<span><?php echo esc_html( $tutor[1] ); ?></span>
-										<?php endif; ?>
+										<span class="~md:~text-24/32"><?php echo esc_html( $tutor_name[0] ); ?></span>
+										<span><?php echo esc_html( $tutor_name[1] ); ?></span>
 									</span>
 								</div>
 							</div>
@@ -122,14 +140,25 @@ $args     = wp_parse_args( $args, $defaults );
 							</div>
 						<?php endif; ?>
 					</div>
+					<?php
+					/*
+					// TODO: 講師ページでの表示、担当コースなど　Figmaでは消されているのでいったん待ち ?>
+					<?php else : ?>
+					<div class="grid grid-cols-3 rounded-16 bg-brand-400/85 ~gap-4/8 ~px-12/16 ~pt-12/16 ~pb-4/8 lg:min-w-400 lg:place-self-end">
+						<?php foreach ( $courses as $course ) : ?>
+							<?php echo esc_html( $course->post_title ); ?>
+						<?php endforeach; ?>
+					</div>
+					<?php */
+					?>
 				<?php endif; ?>
 			</div>
 		<?php else : ?>
 			<?php if ( $args['title'] ) : ?>
-				<div class="flex flex-col ~gap-12/16">
-					<h1 class="uppercase font-barlow ~text-40/120 text-white font-bold leading-none tracking-[-0.02em]"><?php echo esc_html( $args['title'] ); ?></h1>
+				<div class="flex flex-col-reverse ~gap-12/16">
+					<h1 class="w-fit bg-brand-500 font-bold leading-relaxed ~text-15/16 ~rounded-4/8 ~px-12/16 ~py-4/8"><?php echo esc_html( $args['subtitle'] ); ?></h1>
 					<?php if ( $args['subtitle'] ) : ?>
-						<p class="text-white font-notosans ~text-15/16 font-bold leading-relaxed w-fit bg-brand-500 rounded-4 py-4 px-12 flex justify-center items-center"><?php echo esc_html( $args['subtitle'] ); ?></p>
+						<p class="uppercase font-barlow ~text-40/120 text-white font-bold leading-none tracking-[-0.02em]"><?php echo esc_html( $args['title'] ); ?></p>
 					<?php endif; ?>
 				</div>
 			<?php endif; ?>
