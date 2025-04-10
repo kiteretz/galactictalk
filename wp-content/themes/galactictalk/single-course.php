@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying all pages
+ * Single Course Template
  *
  * @package GalacticTalk
  */
