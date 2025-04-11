@@ -149,7 +149,8 @@ $args     = wp_parse_args( $args, $defaults );
 							<?php echo esc_html( $course->post_title ); ?>
 						<?php endforeach; ?>
 					</div>
-					<?php */
+					<?php
+					*/
 					?>
 				<?php endif; ?>
 			</div>
