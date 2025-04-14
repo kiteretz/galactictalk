@@ -7,7 +7,7 @@
  * @package GalacticTalk
  */
 
-$tags = get_the_terms( get_the_ID(), 'magazine_tag' );
+$tags = wp_get_post_terms( get_the_ID(), array( 'course_tag', 'magazine_tag', 'tutor_tag' ) );
 
 get_header(); ?>
 
