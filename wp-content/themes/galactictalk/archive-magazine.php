@@ -26,6 +26,7 @@ get_header();
 			<?php while ( have_posts() ) : ?>
 				<?php
 				the_post();
+				// Get the tags.
 				$tags = get_the_terms( get_the_ID(), 'magazine_tag' );
 				?>
 				<div class="shadow-[0_0_40_0_rgba(49,25,90,0.80)_inset,0_2px_32px_0_rgba(188,94,239,0.40)]">
