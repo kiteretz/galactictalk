@@ -9,8 +9,9 @@
 $current_id = get_the_ID();
 
 // Check if the current post type is course or tutor.
-$is_course_single = is_singular( 'course' );
-$is_tutor_single  = is_singular( 'tutor' );
+$is_course_archive = is_post_type_archive( 'course' );
+$is_course_single  = is_singular( 'course' );
+$is_tutor_single   = is_singular( 'tutor' );
 
 // Get course/tutor data.
 $english_title = get_field( 'english_title' );
@@ -50,7 +51,15 @@ $defaults = array(
 $args     = wp_parse_args( $args, $defaults );
 ?>
 
-<div class="<?php cx( 'grid mb-80 *:col-span-full *:row-span-full', $is_course_single ? '' : 'lg:~mb-0/[-10.5rem]' ); ?>">
+<div class="
+<?php
+	cx(
+		'grid *:col-span-full *:row-span-full',
+		$is_course_archive ? 'lg:~mb-0/[-18rem]' : ( $is_course_single ? '' : 'lg:~mb-0/[-10.5rem]' )
+	);
+	?>
+	"
+>
 	<div class="
 	<?php
 	cx(
