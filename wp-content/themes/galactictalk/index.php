@@ -442,6 +442,17 @@ $tutors = get_posts(
 	)
 );
 
+if ( $tutors ) {
+	get_template_part(
+		'parts/tutor-section',
+		null,
+		array(
+			'class'  => 'xl:-mt-320',
+			'tutors' => $tutors,
+		)
+	);
+}
+/**
 if ( $tutors ) :
 	?>
 	<section class="splide js-tutor-carousel grid ~gap-40/80 xl:-mt-320">
@@ -480,7 +491,8 @@ if ( $tutors ) :
 		);
 		?>
 	</section>
-<?php endif; ?>
+<?php endif; */
+?>
 
 <!-- Testimonials section -->
 <?php

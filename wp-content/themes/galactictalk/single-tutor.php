@@ -27,6 +27,23 @@ while ( have_posts() ) :
 <?php endwhile; ?>
 
 <?php
+$tutors = get_posts(
+	array(
+		'post_type'   => 'tutor',
+		'numberposts' => 5,
+	)
+);
+
+if ( $tutors ) {
+	get_template_part(
+		'parts/tutor-section',
+		null,
+		array( 'tutors' => $tutors )
+	);
+}
+?>
+
+<?php
 $courses = get_posts(
 	array(
 		'post_type'   => 'course',
