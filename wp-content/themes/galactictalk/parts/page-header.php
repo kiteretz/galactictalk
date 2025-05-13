@@ -47,6 +47,7 @@ $defaults = array(
 	'title'    => '',
 	'subtitle' => '',
 	'image'    => '',
+	'excerpt'  => '',
 );
 $args     = wp_parse_args( $args, $defaults );
 ?>
@@ -78,7 +79,7 @@ $args     = wp_parse_args( $args, $defaults );
 		<?php endif; ?>
 		<div class="absolute inset-0 bg-gradient-to-b from-transparent from-70% to-black lg:from-50%"></div>
 	</div>
-	<div class="z-10 container h-fit ~pt-200/240 lg:pb-92">
+	<div class="z-10 container h-fit mb-80 ~pt-200/240 lg:mb-0 lg:pb-92">
 		<?php if ( $is_course_single || $is_tutor_single ) : ?>
 			<div class="grid font-barlow uppercase">
 				<?php if ( $english_title ) : ?>
@@ -171,6 +172,9 @@ $args     = wp_parse_args( $args, $defaults );
 						<p class="uppercase font-barlow ~text-40/120 text-white font-bold leading-none tracking-[-0.02em]"><?php echo esc_html( $args['title'] ); ?></p>
 					<?php endif; ?>
 				</div>
+				<?php if ( $args['excerpt'] ) : ?>
+					<p class="~text-15/16 ~mt-20/32 font-bold leading-normal"><?php echo wp_kses_post( $args['excerpt'] ); ?></p>
+				<?php endif; ?>
 			<?php endif; ?>
 		<?php endif; ?>
 	</div>

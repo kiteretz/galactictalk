@@ -21,6 +21,7 @@ $index     = 0;
 			'title'    => 'Testimonials',
 			'subtitle' => '受講生の声',
 			'image'    => 'mv-testimonial.webp',
+			'excerpt'  => '受講生アンケートでいただいた声をご紹介いたします。',
 		)
 	);
 	?>
