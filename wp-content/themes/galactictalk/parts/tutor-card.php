@@ -20,7 +20,6 @@ $is_tutor_archive = is_post_type_archive( 'tutor' );
 <?php
 cx(
 	'relative z-0 flex h-full w-248 flex-col',
-	// 'overflow-hidden rounded-40　lg:h-561',
 	'lg:w-352',
 	$args['class']
 );
@@ -71,7 +70,6 @@ href="<?php echo esc_url( get_the_permalink( $args['post'] ) ); ?>"
 		<?php
 			cx(
 				'relative mt-auto grid place-items-center',
-				// 'rounded-b-40'
 			);
 			?>
 		">
