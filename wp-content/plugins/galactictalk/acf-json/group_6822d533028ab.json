@@ -1,13 +1,13 @@
 {
-    "key": "group_676d39d348a0f",
-    "title": "タイトルの英語表記",
+    "key": "group_6822d533028ab",
+    "title": "人気バッジ",
     "fields": [
         {
-            "key": "field_676d39d3c828d",
+            "key": "field_6822d533068ff",
             "label": "",
-            "name": "english_title",
+            "name": "popular_badge",
             "aria-label": "",
-            "type": "text",
+            "type": "true_false",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,12 +16,12 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "maxlength": "",
+            "message": "",
+            "default_value": 0,
             "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "ui_on_text": "表示",
+            "ui_off_text": "非表示",
+            "ui": 1
         }
     ],
     "location": [
@@ -49,5 +49,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1747113573
+    "modified": 1747114426
 }

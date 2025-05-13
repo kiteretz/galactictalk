@@ -28,19 +28,25 @@ cx(
 href="<?php echo esc_url( get_the_permalink( $args['post'] ) ); ?>"
 >
 	<div class="flex h-full flex-col gap-12 rounded-t-[22.5rem] ~rounded-b-16/24 bg-[radial-gradient(160.32%_65.66%_at_50%_0%,_#6E00C2_0%,_#20103C_100%)] ~md:~pt-48/80">
-		<?php if ( $is_tutor_archive ) : ?>
-			<p class="
-				<?php
-					cx(
-						'absolute -top-7 -right-6 bg-[linear-gradient(187deg,#FF6CAE_-22.19%,#FF0E79_127.37%)] flex flex-col justify-center rounded-full ~size-70/106',
-						'*:font-bold *:text-white *:text-center *:~text-16/22 *:leading-normal'
-					);
+		<?php
+		if ( $is_tutor_archive ) :
+			if ( get_field( 'popular_badge', $args['post'] ) ) :
 				?>
-			">
-				<span>人気</span>
-				<span>講師</span>
-			</p>
-		<?php endif; ?>
+				<p class="
+					<?php
+						cx(
+							'absolute -top-7 -right-6 bg-[linear-gradient(187deg,#FF6CAE_-22.19%,#FF0E79_127.37%)] flex flex-col justify-center rounded-full ~size-70/106',
+							'*:font-bold *:text-white *:text-center *:~text-16/22 *:leading-normal'
+						);
+					?>
+				">
+					<span>人気</span>
+					<span>講師</span>
+				</p>
+				<?php
+			endif;
+		endif;
+		?>
 		<div class="relative grid auto-rows-min items-start justify-items-center ~px-12/19 text-center">
 			<?php
 			// Separate the English title into two lines.

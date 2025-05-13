@@ -53,9 +53,11 @@ get_header();
 				$english_title = get_field( 'english_title' );
 				$tags          = get_the_terms( get_the_ID(), 'course_tag' );
 				?>
-				<div class="relative">
-					<p class="absolute -left-11 top-8 z-10 text-white text-center ~text-16/20 font-bold leading-relaxed inline-flex justify-center items-center ~rounded-4/8 ~py-4/8 ~px-12/16 bg-[linear-gradient(251deg,#FF6CAE_-35.88%,#FF0E79_134.9%)]">人気コース</p>
-					<a class="<?php cx( 'relative flex aspect-[317/517] w-full flex-col overflow-hidden rounded-24 shadow-sm sm:aspect-[352/513] lg:shadow-lg' ); ?>" href="<?php echo esc_url( get_the_permalink() ); ?>">
+				<a href="<?php echo esc_url( get_the_permalink() ); ?>" class="relative">
+					<?php if ( get_field( 'popular_badge' ) ) : ?>
+						<p class="absolute -left-11 top-8 z-10 text-white text-center ~text-16/20 font-bold leading-relaxed inline-flex justify-center items-center ~rounded-4/8 ~py-4/8 ~px-12/16 bg-[linear-gradient(251deg,#FF6CAE_-35.88%,#FF0E79_134.9%)]">人気コース</p>
+					<?php endif; ?>
+					<div class="<?php cx( 'relative flex aspect-[317/517] w-full flex-col overflow-hidden rounded-24 shadow-sm sm:aspect-[352/513] lg:shadow-lg' ); ?>">
 						<div class="absolute inset-0">
 							<img class="size-full object-cover" src="<?php echo esc_url( get_the_post_thumbnail_url() ); ?>" alt="" width="352" height="513">
 						</div>
@@ -79,8 +81,8 @@ get_header();
 								<?php endif; ?>
 							</div>
 						</div>
-					</a>
-				</div>
+					</div>
+				</a>
 			<?php endwhile; ?>
 		</div>
 		<?php
