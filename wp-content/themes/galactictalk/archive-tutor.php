@@ -22,7 +22,7 @@ get_header();
 	?>
 
 	<?php if ( have_posts() ) : ?>
-		<div class="container grid ~gap-x-16/32 ~gap-y-40/80 lg:grid-cols-3">
+		<div class="container grid justify-center ~gap-x-16/32 ~gap-y-40/80 md:grid-cols-[auto_auto] lg:grid-cols-3">
 			<?php
 			while ( have_posts() ) :
 				the_post();
@@ -30,7 +30,7 @@ get_header();
 				<?php
 				get_template_part(
 					'parts/tutor-card',
-					null,
+					null
 				);
 				?>
 			<?php endwhile; ?>
