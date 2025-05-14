@@ -59,23 +59,26 @@ $args     = wp_parse_args( $args, $defaults );
 		$is_course_archive ? 'lg:~mb-0/[-18rem]' : ( $is_course_single ? '' : 'lg:~mb-0/[-10.5rem]' )
 	);
 	?>
-	"
->
+">
 	<div class="
 	<?php
-	cx(
-		'relative overflow-hidden',
-		$is_course_single ? '~h-[35.75rem]/800' :
-			( '~h-[16.875rem]/800' . ( $is_tutor_single ? '' : ' -z-10' ) )
-	);
-	?>
+		cx(
+			'relative overflow-hidden',
+			$is_course_single ? '~h-[35.75rem]/800' :
+				( '~h-[16.875rem]/800' . ( $is_tutor_single ? '' : ' -z-10' ) )
+		);
+		?>
 	">
 		<?php
-		if ( $is_course_single || $is_tutor_single ) :
+		if ( $is_course_single ) :
 			the_post_thumbnail( 'full', array( 'class' => 'h-full w-full object-cover lg:h-auto lg:translate-y-[-10%]' ) );
-		elseif ( $args['image'] ) :
-			?>
-			<img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/' . $args['image'] ) ); ?>" alt="" class="object-cover size-full">
+			elseif ( $is_tutor_single ) :
+				?>
+				<img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/mv-tutor.webp' ) ); ?>" alt="" class="object-cover size-full">
+				<?php
+					elseif ( $args['image'] ) :
+						?>
+					<img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/' . $args['image'] ) ); ?>" alt="" class="object-cover size-full">
 		<?php endif; ?>
 		<div class="absolute inset-0 bg-gradient-to-b from-transparent from-70% to-black lg:from-50%"></div>
 	</div>
@@ -152,7 +155,7 @@ $args     = wp_parse_args( $args, $defaults );
 					</div>
 					<?php
 					/*
-					// TODO: 講師ページでの表示、担当コースなど　Figmaでは消されているのでいったん待ち ?>
+					// TODO: 講師ページでの表示、担当コースなど　Figmaでは消されている ?>
 					<?php else : ?>
 					<div class="grid grid-cols-3 rounded-16 bg-brand-400/85 ~gap-4/8 ~px-12/16 ~pt-12/16 ~pb-4/8 lg:min-w-400 lg:place-self-end">
 						<?php foreach ( $courses as $course ) : ?>

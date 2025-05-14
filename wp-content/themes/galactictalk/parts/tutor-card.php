@@ -75,11 +75,11 @@ href="<?php echo esc_url( get_the_permalink( $args['post'] ) ); ?>"
 		<div class="
 		<?php
 			cx(
-				'relative mt-auto grid place-items-center',
+				'relative mt-auto mx-auto overflow-hidden h-[13.3125rem] w-240 lg:h-312 lg:w-352',
 			);
 			?>
 		">
-			<img class="z-10 ~w-240/352" src="<?php echo esc_url( get_the_post_thumbnail_url( $args['post'], 'full' ) ); ?>" alt="" width="352" height="312">
+			<img class="z-10 object-cover" src="<?php echo esc_url( get_the_post_thumbnail_url( $args['post'], 'full' ) ); ?>" alt="" width="352" height="312">
 		</div>
 	</div>
 </a>
