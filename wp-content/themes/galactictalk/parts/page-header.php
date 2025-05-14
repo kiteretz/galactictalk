@@ -65,7 +65,7 @@ $args     = wp_parse_args( $args, $defaults );
 		cx(
 			'relative overflow-hidden',
 			$is_course_single ? '~h-[35.75rem]/800' :
-				( '~h-[16.875rem]/800' . ( $is_tutor_single ? '' : ' -z-10' ) )
+				( '~h-[16.875rem]/800' . ( $is_tutor_single ? ' ~h-[44.75rem]/800' : ' -z-10' ) )
 		);
 		?>
 	">
@@ -80,13 +80,35 @@ $args     = wp_parse_args( $args, $defaults );
 						?>
 					<img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/' . $args['image'] ) ); ?>" alt="" class="object-cover size-full">
 		<?php endif; ?>
-		<div class="absolute inset-0 bg-gradient-to-b from-transparent from-70% to-black lg:from-50%"></div>
+		<?php if ( $is_tutor_single ) : ?>
+			<div class="max-w-1208 w-full mx-auto absolute inset-x-0 top-[--header-height] lg:top-142">
+				<?php the_post_thumbnail( 'full', array( 'class' => '~w-360/476 mx-auto md:mr-0' ) ); ?>
+			</div>
+		<?php endif; ?>
+		<div class="
+		<?php
+		cx(
+			'absolute inset-0 bg-gradient-to-b from-transparent from-70% to-black lg:from-50%',
+			$is_course_single ? 'from-30%' : '',
+			$is_tutor_single ? 'from-30% via-60% via-black/80 lg:via-100% lg:via-black' : ''
+		)
+		?>
+		"></div>
 	</div>
-	<div class="z-10 container h-fit mb-80 ~pt-200/240 lg:mb-0 lg:pb-92">
+	<div class="
+	<?php
+		cx(
+			'z-10 container h-fit mb-80 ~pt-200/240',
+			'lg:mb-0 lg:pb-92',
+			$is_course_single ? '~pt-[19.3125rem]/240' : '',
+			$is_tutor_single ? '~pt-[20.875rem]/240' : ''
+		)
+		?>
+	">
 		<?php if ( $is_course_single || $is_tutor_single ) : ?>
 			<div class="grid font-barlow uppercase">
 				<?php if ( $english_title ) : ?>
-					<p class="font-bold leading-none ~mb-12/16 ~text-40/120"><?php echo esc_html( $english_title ); ?></p>
+					<p class="font-bold leading-none tracking-[-0.02em] ~mb-12/16 ~text-40/120"><?php echo esc_html( $english_title ); ?></p>
 				<?php endif; ?>
 				<h1 class="mb-2 w-fit bg-brand-500 leading-relaxed ~text-15/16 ~rounded-4/8 ~px-12/16 ~py-4/8"><?php the_title(); ?></h1>
 				<?php if ( $tagline ) : ?>
