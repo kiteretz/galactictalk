@@ -13,7 +13,6 @@ while ( have_posts() ) :
 
 	<div class="editor-styles-wrapper min-h-dvh">
 		<?php
-		// page-headerコースでの分岐テスト中.
 		get_template_part(
 			'parts/page-header'
 		);
