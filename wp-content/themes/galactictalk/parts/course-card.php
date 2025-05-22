@@ -16,8 +16,18 @@ $english_title = get_field( 'english_title', $args['post'] );
 $tags          = get_the_terms( $args['post'], 'course_tag' );
 ?>
 
-<a class="<?php cx( 'relative flex aspect-[248/500] w-248 flex-col overflow-hidden rounded-24 shadow-sm lg:aspect-[368/600] lg:w-368 lg:shadow-lg', $args['class'] ); ?>" href="<?php echo esc_url( get_the_permalink( $args['post'] ) ); ?>"
-<?php echo $args['aria-hidden'] ? 'aria-hidden="true"' : ''; ?>
+<a class="
+<?php
+cx(
+	'relative flex aspect-[248/500] w-248 flex-col overflow-hidden rounded-24 shadow-sm',
+	'hover:translate-y-[-8%] transition-transform duration-[400ms] ease-out',
+	'lg:aspect-[368/600] lg:w-368 lg:shadow-lg',
+	$args['class']
+);
+?>
+	"
+	href="<?php echo esc_url( get_the_permalink( $args['post'] ) ); ?>"
+	<?php echo $args['aria-hidden'] ? 'aria-hidden="true"' : ''; ?>
 >
 	<div class="absolute inset-0">
 		<img class="size-full object-cover" src="<?php echo esc_url( get_the_post_thumbnail_url( $args['post'], 'full' ) ); ?>" alt="" width="368" height="600">
