@@ -56,7 +56,7 @@ $args     = wp_parse_args( $args, $defaults );
 <?php
 	cx(
 		'grid *:col-span-full *:row-span-full',
-		$is_course_archive ? 'lg:~mb-0/[-18rem]' : ( $is_course_single ? '' : 'lg:~mb-0/[-10.5rem]' )
+		$is_course_archive ? 'lg:~mb-0/[-18rem]' : ( $is_course_single ? '' : 'lg:~mb-0/[-10.5rem]' ),
 	);
 	?>
 ">
@@ -65,13 +65,14 @@ $args     = wp_parse_args( $args, $defaults );
 		cx(
 			'relative overflow-hidden',
 			$is_course_single ? '~h-[35.75rem]/800' :
-				( '~h-[16.875rem]/800' . ( $is_tutor_single ? ' ~h-[44.75rem]/800' : ' -z-10' ) )
+				( '~h-[16.875rem]/800' . ( $is_tutor_single ? ' ~h-[44.75rem]/800' : ' -z-10' ) ),
+			is_page() ? 'z-10' : '',
 		);
 		?>
 	">
 		<?php
 		if ( $is_course_single ) :
-			the_post_thumbnail( 'full', array( 'class' => 'h-full w-full object-cover lg:h-auto lg:translate-y-[-10%]' ) );
+			the_post_thumbnail( 'full', array( 'class' => 'size-full object-cover lg:h-auto lg:translate-y-[-10%]' ) );
 			elseif ( $is_tutor_single ) :
 				?>
 				<img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/mv-tutor.webp' ) ); ?>" alt="" class="object-cover size-full">
@@ -79,6 +80,10 @@ $args     = wp_parse_args( $args, $defaults );
 					elseif ( $args['image'] ) :
 						?>
 					<img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/' . $args['image'] ) ); ?>" alt="" class="object-cover size-full">
+						<?php
+					else :
+						the_post_thumbnail( 'full', array( 'class' => 'size-full object-cover' ) );
+						?>
 		<?php endif; ?>
 		<?php if ( $is_tutor_single ) : ?>
 			<div class="max-w-1208 w-full mx-auto absolute inset-x-0 top-[--header-height] lg:top-142">
