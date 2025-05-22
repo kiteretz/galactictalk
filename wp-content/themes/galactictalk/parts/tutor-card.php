@@ -20,6 +20,7 @@ $is_tutor_archive = is_post_type_archive( 'tutor' );
 <?php
 cx(
 	'relative z-0 flex h-full w-248 flex-col',
+	'hover:scale-105 transition-transform duration-300 ease-out-back',
 	'lg:w-352',
 	$args['class']
 );

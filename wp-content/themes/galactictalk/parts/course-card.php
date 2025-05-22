@@ -20,7 +20,7 @@ $tags          = get_the_terms( $args['post'], 'course_tag' );
 <?php
 cx(
 	'relative flex aspect-[248/500] w-248 flex-col overflow-hidden rounded-24 shadow-sm',
-	'hover:translate-y-[-8%] transition-transform duration-[400ms] ease-out',
+	'hover:translate-y-[-8%] transition-transform duration-300 ease-out-back',
 	'lg:aspect-[368/600] lg:w-368 lg:shadow-lg',
 	$args['class']
 );
