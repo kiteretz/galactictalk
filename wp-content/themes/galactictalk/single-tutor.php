@@ -54,7 +54,10 @@ if ( $courses ) {
 	get_template_part(
 		'parts/course-section',
 		null,
-		array( 'courses' => $courses )
+		array(
+			'courses' => $courses,
+			'class'   => 'xl:!pb-0',
+		)
 	);
 }
 ?>

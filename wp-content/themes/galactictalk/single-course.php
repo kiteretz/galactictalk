@@ -39,7 +39,7 @@ if ( $courses ) {
 		null,
 		array(
 			'courses' => $courses,
-			'class'   => 'xl:pb-0',
+			'class'   => 'xl:!pb-0',
 		)
 	);
 }
