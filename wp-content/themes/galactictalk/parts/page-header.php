@@ -25,6 +25,8 @@ if ( $is_course_single ) {
 	$tags = get_the_terms( get_the_ID(), 'course_tag' );
 } elseif ( $is_tutor_single ) {
 	$tags = get_the_terms( get_the_ID(), 'tutor_tag' );
+} else {
+	$tags = null;
 }
 
 // Get the courses.
@@ -56,7 +58,7 @@ $args     = wp_parse_args( $args, $defaults );
 <?php
 	cx(
 		'grid *:col-span-full *:row-span-full',
-		$is_course_archive ? 'lg:~mb-0/[-18rem]' : ( $is_course_single ? '' : 'lg:~mb-0/[-10.5rem]' ),
+		$is_course_archive ? 'lg:~mb-0/[-18rem]' : ( $is_course_single || is_page() ? '' : 'lg:~mb-0/[-10.5rem]' ),
 	);
 	?>
 ">
@@ -95,7 +97,7 @@ $args     = wp_parse_args( $args, $defaults );
 		cx(
 			'absolute inset-0 bg-gradient-to-b from-transparent from-70% to-black lg:from-50%',
 			$is_course_single ? 'from-30%' : '',
-			$is_tutor_single ? 'from-30% via-60% via-black/80 lg:via-100% lg:via-black' : ''
+			$is_tutor_single ? '!from-30% via-60% via-black/80 lg:via-100% lg:via-black' : ''
 		)
 		?>
 		"></div>
@@ -110,7 +112,10 @@ $args     = wp_parse_args( $args, $defaults );
 		)
 		?>
 	">
-		<?php if ( $is_course_single || $is_tutor_single ) : ?>
+		<?php
+		// コース詳細ページ、講師詳細ページ、固定ページの場合
+		if ( $is_course_single || $is_tutor_single || is_page() ) :
+			?>
 			<div class="grid font-barlow uppercase">
 				<?php if ( $english_title ) : ?>
 					<p class="font-bold leading-none tracking-[-0.02em] ~mb-12/16 ~text-40/120"><?php echo esc_html( $english_title ); ?></p>
