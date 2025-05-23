@@ -2704,6 +2704,14 @@ document.querySelectorAll(".js-magazine-carousel").forEach((el) => {
     resetTabindex(el);
   }).mount();
 });
+document.querySelectorAll(".js-service-carousel").forEach((el) => {
+  new Splide(el, {
+    gap: "1rem",
+    speed: 1e3,
+    autoplay: true,
+    updateOnMove: true
+  }).mount();
+});
 function _assertThisInitialized$1(self) {
   if (self === void 0) {
     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");

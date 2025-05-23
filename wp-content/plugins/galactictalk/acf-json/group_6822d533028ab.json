@@ -1,13 +1,13 @@
 {
-    "key": "group_677f75024f8e0",
-    "title": "担当講師",
+    "key": "group_6822d533028ab",
+    "title": "人気バッジ",
     "fields": [
         {
-            "key": "field_677f750244416",
+            "key": "field_6822d533068ff",
             "label": "",
-            "name": "tutor",
+            "name": "popular_badge",
             "aria-label": "",
-            "type": "post_object",
+            "type": "true_false",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,18 +16,12 @@
                 "class": "",
                 "id": ""
             },
-            "post_type": [
-                "tutor"
-            ],
-            "post_status": "",
-            "taxonomy": "",
-            "return_format": "object",
-            "multiple": 0,
-            "allow_null": 0,
-            "allow_in_bindings": 1,
-            "bidirectional": 0,
-            "ui": 1,
-            "bidirectional_target": []
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui_on_text": "表示",
+            "ui_off_text": "非表示",
+            "ui": 1
         }
     ],
     "location": [
@@ -37,9 +31,16 @@
                 "operator": "==",
                 "value": "course"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "tutor"
+            }
         ]
     ],
-    "menu_order": 2,
+    "menu_order": 0,
     "position": "side",
     "style": "default",
     "label_placement": "top",
@@ -48,5 +49,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1744094306
+    "modified": 1747114426
 }

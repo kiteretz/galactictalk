@@ -258,7 +258,7 @@ module.exports = {
                 borderRadius: '100vmax',
                 display: 'inline-block',
                 fontSize,
-                fontWeight: 500,
+                fontWeight: 700,
                 lineHeight: '1.75',
                 padding,
                 textAlign: 'center',
