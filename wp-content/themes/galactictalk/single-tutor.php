@@ -1,6 +1,6 @@
 <?php
 /**
- * Single Course Template
+ * Single Tutor Template
  *
  * @package GalacticTalk
  */
@@ -13,9 +13,9 @@ while ( have_posts() ) :
 
 	<div class="editor-styles-wrapper min-h-dvh">
 		<?php
-			get_template_part(
-				'parts/page-header'
-			);
+		get_template_part(
+			'parts/page-header'
+		);
 		?>
 
 		<div class="block-editor-block-list__layout is-root-container is-layout-flow">
@@ -24,6 +24,23 @@ while ( have_posts() ) :
 	</div>
 
 <?php endwhile; ?>
+
+<?php
+$tutors = get_posts(
+	array(
+		'post_type'   => 'tutor',
+		'numberposts' => 5,
+	)
+);
+
+if ( $tutors ) {
+	get_template_part(
+		'parts/tutor-section',
+		null,
+		array( 'tutors' => $tutors )
+	);
+}
+?>
 
 <?php
 $courses = get_posts(
