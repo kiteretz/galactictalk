@@ -1,0 +1,25 @@
+on:
+  push:
+    branches:
+      - staging
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+name: Deploy staging
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Import ssh key
+        run: echo "$SSH_KEY" > key && chmod 600 key
+        env:
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+      - name: SSH & git pull
+        run: >
+          ssh -i key -p $STAGING_PORT -o StrictHostKeyChecking=no
+          $STAGING_USER@$STAGING_HOST
+          "cd $STAGING_PATH && git checkout staging && git pull"
+        env:
+          STAGING_USER: ${{ secrets.STAGING_USER }}
+          STAGING_HOST: ${{ secrets.STAGING_HOST }}
+          STAGING_PATH: ${{ secrets.STAGING_PATH }}
+          STAGING_PORT: ${{ secrets.STAGING_PORT }}
