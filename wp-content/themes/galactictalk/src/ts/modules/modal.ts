@@ -1,49 +1,9 @@
 /**
  * Modal
+ *
+ * This module handles modal windows triggered by URL hash changes.
  */
 
-// buttonタグ、aタグ両方に対応パターン
-// const triggers = document.querySelectorAll('.js-modal-trigger');
-// const overlay = document.getElementById('modal-overlay');
-
-// triggers?.forEach((trigger) => {
-//   const id = (trigger as HTMLElement).dataset.targetMenu;
-
-//   trigger.addEventListener('click', (e) => {
-//     // aタグの場合はデフォルトの動作（ページ移動）を防ぐ
-//     e.preventDefault();
-
-//     const modal = document.getElementById(`modal-${id}`);
-//     const isOpen = modal?.getAttribute('aria-hidden') === 'false';
-//     document.body.style.overflow = isOpen ? 'auto' : 'hidden';
-//     modal?.setAttribute('aria-hidden', `${isOpen}`);
-//     overlay?.setAttribute('aria-hidden', `${isOpen}`);
-//   });
-// });
-
-// // オーバーレイクリックで閉じる機能を追加
-// overlay?.addEventListener('click', () => {
-//   const openModal = document.querySelector('.modal[aria-hidden="false"]');
-//   if (openModal) {
-//     document.body.style.overflow = 'auto';
-//     openModal.setAttribute('aria-hidden', 'true');
-//     overlay.setAttribute('aria-hidden', 'true');
-//   }
-// });
-
-// // ESCキーで閉じる機能を追加
-// document.addEventListener('keydown', (e) => {
-//   if (e.key === 'Escape') {
-//     const openModal = document.querySelector('.modal[aria-hidden="false"]');
-//     if (openModal) {
-//       document.body.style.overflow = 'auto';
-//       openModal.setAttribute('aria-hidden', 'true');
-//       overlay?.setAttribute('aria-hidden', 'true');
-//     }
-//   }
-// });
-
-// URL駆動モーダルシステム（リンクで開くモーダル） modal.phpのパターン1のときに使用
 class UrlModalSystem {
   overlay: HTMLElement | null;
   currentModal: HTMLElement | null;
