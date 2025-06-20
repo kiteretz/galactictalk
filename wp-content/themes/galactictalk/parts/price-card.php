@@ -68,7 +68,7 @@ $args     = wp_parse_args( $args, $defaults );
 	button(
 		'このプランを申し込む',
 		array(
-			'href'  => '#',
+			'href'  => '#modal-info',
 			'class' => 'mx-auto w-full !min-w-0 self-end border-white !px-24 !py-16 text-white before:!bg-white hover:!bg-white hover:!text-[--bg] md:max-w-320',
 		)
 	);
