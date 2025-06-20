@@ -7,7 +7,7 @@
 
 ?>
 
-<div id="modal-overlay" aria-hidden="true" class="
+<div id="modal-overlay" class="
 <?php
 	cx(
 		'fixed inset-0 w-full h-full bg-black/50 z-[1000] transition-opacity duration-300 ease-[ease] opacity-0 pointer-events-none',
@@ -23,7 +23,7 @@
 		'[&.active]:opacity-100 [&.active]:pointer-events-auto [&.active]:-translate-x-1/2 [&.active]:-translate-y-1/2',
 	)
 	?>
-" aria-hidden="true" role="dialog" aria-labelledby="modal-info-title">
+" role="dialog" aria-labelledby="Thank you for Visiting">
 	<div class="
 	<?php
 		cx(
@@ -32,7 +32,7 @@
 		)
 		?>
 	">
-		<h2 id="modal-info-title" class="text-[#07030E] font-barlow font-bold uppercase text-center ~text-48/64 leading-none tracking-[-0.02em]">
+		<h2 class="text-[#07030E] font-barlow font-bold uppercase text-center ~text-48/64 leading-none tracking-[-0.02em]">
 		Thank you<br />
 		for Visiting
 		</h2>
@@ -62,7 +62,7 @@
 				'size-24 absolute top-40 right-40'
 			)
 			?>
-		" data-target-menu="info" aria-label="モーダルを閉じる">
+		" aria-label="モーダルを閉じる">
 			<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" viewBox="0 0 26 26">
 				<path stroke="#000" d="m1 1 24 24M1 25 25 1"/>
 			</svg>
