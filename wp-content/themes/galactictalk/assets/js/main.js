@@ -8879,6 +8879,81 @@ backdrop == null ? void 0 : backdrop.addEventListener("click", () => {
   container == null ? void 0 : container.setAttribute("aria-hidden", "true");
   backdrop == null ? void 0 : backdrop.classList.add("hidden");
 });
+class UrlModalSystem {
+  constructor() {
+    this.overlay = document.getElementById("modal-overlay");
+    this.currentModal = null;
+    this.init();
+  }
+  init() {
+    var _a;
+    this.checkHash();
+    window.addEventListener("hashchange", () => {
+      this.checkHash();
+    });
+    (_a = this.overlay) == null ? void 0 : _a.addEventListener("click", () => {
+      this.closeModal();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        this.closeModal();
+      }
+    });
+    document.querySelectorAll(".modal-close").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        this.closeModal();
+      });
+    });
+  }
+  checkHash() {
+    const hash = window.location.hash;
+    if (hash && hash.startsWith("#modal-")) {
+      const modalId = hash.substring(1);
+      this.openModal(modalId);
+    } else {
+      this.closeAllModals();
+    }
+  }
+  openModal(modalId) {
+    var _a;
+    this.closeAllModals();
+    const modal = document.getElementById(modalId);
+    if (modal) {
+      this.currentModal = modal;
+      document.body.style.overflow = "hidden";
+      (_a = this.overlay) == null ? void 0 : _a.classList.add("active");
+      modal.classList.add("active");
+      const focusableElement = modal.querySelector(
+        "input, button, textarea, select, a[href]"
+      );
+      if (focusableElement) {
+        setTimeout(() => focusableElement.focus(), 100);
+      }
+    }
+  }
+  closeModal() {
+    if (window.location.hash) {
+      history.replaceState(
+        null,
+        "",
+        window.location.pathname + window.location.search
+      );
+    }
+    this.closeAllModals();
+  }
+  closeAllModals() {
+    var _a;
+    document.body.style.overflow = "auto";
+    (_a = this.overlay) == null ? void 0 : _a.classList.remove("active");
+    document.querySelectorAll(".modal.active").forEach((modal) => {
+      modal.classList.remove("active");
+    });
+    this.currentModal = null;
+  }
+}
+document.addEventListener("DOMContentLoaded", () => {
+  new UrlModalSystem();
+});
 gsapWithCSS.config({
   nullTargetWarn: false
 });
