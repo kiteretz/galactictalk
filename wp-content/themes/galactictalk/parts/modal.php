@@ -19,7 +19,7 @@
 <?php
 	cx(
 		'modal',
-		'fixed opacity-0 max-w-720 w-full max-h-[100vh] top-1/2 left-1/2 ~px-16/20 -translate-x-1/2 translate-y-[-60%] pointer-events-none z-[1001] transition-all duration-300 ease-[ease]',
+		'fixed opacity-0 top-1/2 left-1/2 w-full max-w-752 max-h-[100vh] px-16 -translate-x-1/2 translate-y-[-60%] pointer-events-none z-[1001] transition-all duration-300 ease-[ease]',
 		'[&.active]:opacity-100 [&.active]:pointer-events-auto [&.active]:-translate-x-1/2 [&.active]:-translate-y-1/2',
 	)
 	?>
@@ -27,7 +27,7 @@
 	<div class="
 	<?php
 		cx(
-			'relative grid ~gap-y-20/32 bg-white ~px-12/16 ~pt-32/64 pb-56 rounded-24 shadow-md overflow-y-auto transition-all duration-300 ease-[ease]',
+			'relative grid ~gap-y-20/32 bg-white px-16 ~/lg:~pt-40/64 ~/lg:~pb-40/56 rounded-24 shadow-md overflow-y-auto transition-all duration-300 ease-[ease]',
 			'[.active_&]:opacity-100 [.active_&]:pointer-events-auto'
 		)
 		?>
@@ -51,7 +51,7 @@
 				'text_class' => '~text-16/18',
 				'icon'       => 'external',
 				'icon_class' => 'before:size-24',
-				'class'      => 'mx-auto text-brand-600 max-w-320',
+				'class'      => 'mx-auto text-brand-600 !min-w-296 w-full max-w-320',
 			)
 		);
 		?>
@@ -59,11 +59,11 @@
 		<?php
 			cx(
 				'js-modal-trigger modal-close',
-				'size-24 absolute top-40 right-40'
+				'~/lg:~size-20/24 absolute ~/lg:~top-24/40 ~/lg:~right-24/40'
 			)
 			?>
 		" aria-label="モーダルを閉じる">
-			<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" viewBox="0 0 26 26">
+			<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none" viewBox="0 0 26 26" class="size-full">
 				<path stroke="#000" d="m1 1 24 24M1 25 25 1"/>
 			</svg>
 		</button>
