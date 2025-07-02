@@ -1,105 +1,51 @@
 /**
  * Modal
  *
- * This module handles modal windows triggered by URL hash changes.
+ * .js-modal-trigger Open/close modal (#thankyou) on element click in class
  */
 
-class UrlModalSystem {
-  overlay: HTMLElement | null;
-  currentModal: HTMLElement | null;
+const triggers = document.querySelectorAll('.js-modal-trigger');
+const overlay = document.querySelector('.overlay');
+const modal = document.getElementById('thankyou');
 
-  constructor() {
-    this.overlay = document.getElementById('modal-overlay');
-    this.currentModal = null;
-    this.init();
-  }
+// スクロールバーの幅を取得
+function getScrollberWidth() {
+  return window.innerWidth - document.documentElement.clientWidth;
+}
 
-  init() {
-    // ページ読み込み時にハッシュをチェック
-    this.checkHash();
+// モーダル表示/非表示
+function setModalVisibility(visible: boolean) {
+  if (!modal || !overlay) return;
+  modal.setAttribute('aria-hidden', visible ? 'false' : 'true');
+  overlay.setAttribute('aria-hidden', visible ? 'false' : 'true');
 
-    // ハッシュ変更を監視
-    window.addEventListener('hashchange', () => {
-      this.checkHash();
-    });
-
-    // オーバーレイクリックで閉じる
-    this.overlay?.addEventListener('click', () => {
-      this.closeModal();
-    });
-
-    // ESCキーで閉じる
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        this.closeModal();
-      }
-    });
-
-    // 閉じるボタンの設定
-    document.querySelectorAll('.modal-close').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        this.closeModal();
-      });
-    });
-  }
-
-  checkHash() {
-    const hash = window.location.hash;
-
-    if (hash && hash.startsWith('#modal-')) {
-      const modalId = hash.substring(1); // #を除去
-      this.openModal(modalId);
-    } else {
-      this.closeAllModals();
-    }
-  }
-
-  openModal(modalId) {
-    // 既存のモーダルを閉じる
-    this.closeAllModals();
-
-    const modal = document.getElementById(modalId);
-    if (modal) {
-      this.currentModal = modal;
-      document.body.style.overflow = 'hidden';
-      this.overlay?.classList.add('active');
-      modal.classList.add('active');
-
-      // フォーカスをモーダル内の最初のフォーカス可能要素に移動
-      const focusableElement = modal.querySelector(
-        'input, button, textarea, select, a[href]',
-      );
-      if (focusableElement) {
-        setTimeout(() => (focusableElement as HTMLElement).focus(), 100);
-      }
-    }
-  }
-
-  closeModal() {
-    // ハッシュをクリア（履歴に残さない）
-    if (window.location.hash) {
-      history.replaceState(
-        null,
-        '',
-        window.location.pathname + window.location.search,
-      );
-    }
-    this.closeAllModals();
-  }
-
-  closeAllModals() {
-    document.body.style.overflow = 'auto';
-    this.overlay?.classList.remove('active');
-
-    document.querySelectorAll('.modal.active').forEach((modal) => {
-      modal.classList.remove('active');
-    });
-
-    this.currentModal = null;
+  // モーダル表示時にスクロールバー非表示分の余白を追加
+  if (visible) {
+    const scrollberWidth = getScrollberWidth();
+    document.body.style.overflow = 'hidden';
+    document.body.style.paddingRight = `${scrollberWidth}px`;
+  } else {
+    document.body.style.overflow = '';
+    document.body.style.paddingRight = '';
   }
 }
 
-// システム初期化
-document.addEventListener('DOMContentLoaded', () => {
-  new UrlModalSystem();
+// .js-modal-trigger クリックでモーダルを開く
+triggers.forEach((trigger) => {
+  trigger.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (!modal || !overlay) return;
+    const isOpen = modal.getAttribute('aria-hidden') === 'false';
+    setModalVisibility(!isOpen);
+  });
+});
+
+// .overlay クリックでモーダルを閉じる
+overlay?.addEventListener('click', (e) => {
+  if (e.target === overlay) setModalVisibility(false);
+});
+
+// ESC キーでモーダルを閉じる
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') setModalVisibility(false);
 });

@@ -7611,7 +7611,7 @@ var Draggable = /* @__PURE__ */ function(_EventDispatcher) {
     _this2.lockedAxis = null;
     _this2.allowEventDefault = !!vars.allowEventDefault;
     gsap$2.getProperty(target, "x");
-    var type = (vars.type || "x,y").toLowerCase(), xyMode = ~type.indexOf("x") || ~type.indexOf("y"), rotationMode = type.indexOf("rotation") !== -1, xProp = rotationMode ? "rotation" : xyMode ? "x" : "left", yProp = xyMode ? "y" : "top", allowX = !!(~type.indexOf("x") || ~type.indexOf("left") || type === "scroll"), allowY = !!(~type.indexOf("y") || ~type.indexOf("top") || type === "scroll"), minimumMovement = vars.minimumMovement || 2, self = _assertThisInitialized(_this2), triggers = _toArray$1(vars.trigger || vars.handle || target), killProps = {}, dragEndTime = 0, checkAutoScrollBounds = false, autoScrollMarginTop = vars.autoScrollMarginTop || 40, autoScrollMarginRight = vars.autoScrollMarginRight || 40, autoScrollMarginBottom = vars.autoScrollMarginBottom || 40, autoScrollMarginLeft = vars.autoScrollMarginLeft || 40, isClickable = vars.clickableTest || _isClickable, clickTime = 0, gsCache = target._gsap || gsap$2.core.getCache(target), isFixed = _isFixed2(target), getPropAsNum = function getPropAsNum2(property, unit2) {
+    var type = (vars.type || "x,y").toLowerCase(), xyMode = ~type.indexOf("x") || ~type.indexOf("y"), rotationMode = type.indexOf("rotation") !== -1, xProp = rotationMode ? "rotation" : xyMode ? "x" : "left", yProp = xyMode ? "y" : "top", allowX = !!(~type.indexOf("x") || ~type.indexOf("left") || type === "scroll"), allowY = !!(~type.indexOf("y") || ~type.indexOf("top") || type === "scroll"), minimumMovement = vars.minimumMovement || 2, self = _assertThisInitialized(_this2), triggers2 = _toArray$1(vars.trigger || vars.handle || target), killProps = {}, dragEndTime = 0, checkAutoScrollBounds = false, autoScrollMarginTop = vars.autoScrollMarginTop || 40, autoScrollMarginRight = vars.autoScrollMarginRight || 40, autoScrollMarginBottom = vars.autoScrollMarginBottom || 40, autoScrollMarginLeft = vars.autoScrollMarginLeft || 40, isClickable = vars.clickableTest || _isClickable, clickTime = 0, gsCache = target._gsap || gsap$2.core.getCache(target), isFixed = _isFixed2(target), getPropAsNum = function getPropAsNum2(property, unit2) {
       return parseFloat(gsCache.get(target, property, unit2));
     }, ownerDoc = target.ownerDocument || _doc$2, enabled, scrollProxy, startPointerX, startPointerY, startElementX, startElementY, hasBounds, hasDragCallback, hasMoveCallback, maxX, minX, maxY, minY, touch, touchID, rotationOrigin, dirty, old, snapX, snapY, snapXY, isClicking, touchEventTarget, matrix, interrupted, allowNativeTouchScrolling, touchDragAxis, isDispatching, clickDispatch, trustedClickDispatch, isPreventingDefault, innerMatrix, dragged, onContextMenu = function onContextMenu2(e) {
       _preventDefault(e);
@@ -8103,7 +8103,7 @@ var Draggable = /* @__PURE__ */ function(_EventDispatcher) {
         _addListener$2(e.target, "change", onRelease);
         _dispatchEvent(self, "pressInit", "onPressInit");
         _dispatchEvent(self, "press", "onPress");
-        _setSelectable(triggers, true);
+        _setSelectable(triggers2, true);
         isPreventingDefault = false;
         return;
       }
@@ -8148,9 +8148,9 @@ var Draggable = /* @__PURE__ */ function(_EventDispatcher) {
       hasDragCallback = !!(vars.onDrag || self._listeners.drag);
       hasMoveCallback = !!(vars.onMove || self._listeners.move);
       if (vars.cursor !== false || vars.activeCursor) {
-        i = triggers.length;
+        i = triggers2.length;
         while (--i > -1) {
-          gsap$2.set(triggers[i], {
+          gsap$2.set(triggers2[i], {
             cursor: vars.activeCursor || vars.cursor || (_defaultCursor === "grab" ? "grabbing" : _defaultCursor)
           });
         }
@@ -8356,15 +8356,15 @@ var Draggable = /* @__PURE__ */ function(_EventDispatcher) {
           _removeListener$2(e.target, "change", onRelease2);
           self.pointerEvent = originalEvent;
         }
-        _setSelectable(triggers, false);
+        _setSelectable(triggers2, false);
         _dispatchEvent(self, "release", "onRelease");
         _dispatchEvent(self, "click", "onClick");
         isClicking = false;
         return;
       }
-      i = triggers.length;
+      i = triggers2.length;
       while (--i > -1) {
-        _setStyle(triggers[i], "cursor", vars.cursor || (vars.cursor !== false ? _defaultCursor : null));
+        _setStyle(triggers2[i], "cursor", vars.cursor || (vars.cursor !== false ? _defaultCursor : null));
       }
       _dragCount--;
       if (e) {
@@ -8640,10 +8640,10 @@ var Draggable = /* @__PURE__ */ function(_EventDispatcher) {
         setVars.touchCallout = "none";
       }
       if (type2 !== "soft") {
-        _setTouchActionForAllDescendants(triggers, allowX === allowY ? "none" : vars.allowNativeTouchScrolling && target.scrollHeight === target.clientHeight === (target.scrollWidth === target.clientHeight) || vars.allowEventDefault ? "manipulation" : allowX ? "pan-y" : "pan-x");
-        i = triggers.length;
+        _setTouchActionForAllDescendants(triggers2, allowX === allowY ? "none" : vars.allowNativeTouchScrolling && target.scrollHeight === target.clientHeight === (target.scrollWidth === target.clientHeight) || vars.allowEventDefault ? "manipulation" : allowX ? "pan-y" : "pan-x");
+        i = triggers2.length;
         while (--i > -1) {
-          trigger2 = triggers[i];
+          trigger2 = triggers2[i];
           _supportsPointer || _addListener$2(trigger2, "mousedown", onPress);
           _addListener$2(trigger2, "touchstart", onPress);
           _addListener$2(trigger2, "click", onClick, true);
@@ -8655,7 +8655,7 @@ var Draggable = /* @__PURE__ */ function(_EventDispatcher) {
           }
           vars.allowContextMenu || _addListener$2(trigger2, "contextmenu", onContextMenu);
         }
-        _setSelectable(triggers, false);
+        _setSelectable(triggers2, false);
       }
       _addScrollListener(target, updateScroll);
       enabled = true;
@@ -8673,22 +8673,22 @@ var Draggable = /* @__PURE__ */ function(_EventDispatcher) {
       return self;
     };
     _this2.disable = function(type2) {
-      var dragging = self.isDragging, i = triggers.length, trigger2;
+      var dragging = self.isDragging, i = triggers2.length, trigger2;
       while (--i > -1) {
-        _setStyle(triggers[i], "cursor", null);
+        _setStyle(triggers2[i], "cursor", null);
       }
       if (type2 !== "soft") {
-        _setTouchActionForAllDescendants(triggers, null);
-        i = triggers.length;
+        _setTouchActionForAllDescendants(triggers2, null);
+        i = triggers2.length;
         while (--i > -1) {
-          trigger2 = triggers[i];
+          trigger2 = triggers2[i];
           _setStyle(trigger2, "touchCallout", null);
           _removeListener$2(trigger2, "mousedown", onPress);
           _removeListener$2(trigger2, "touchstart", onPress);
           _removeListener$2(trigger2, "click", onClick, true);
           _removeListener$2(trigger2, "contextmenu", onContextMenu);
         }
-        _setSelectable(triggers, true);
+        _setSelectable(triggers2, true);
         if (touchEventTarget) {
           _removeListener$2(touchEventTarget, "touchcancel", onRelease);
           _removeListener$2(touchEventTarget, "touchend", onRelease);
@@ -8716,7 +8716,7 @@ var Draggable = /* @__PURE__ */ function(_EventDispatcher) {
       self.isThrowing = false;
       self.tween && self.tween.kill();
       self.disable();
-      gsap$2.set(triggers, {
+      gsap$2.set(triggers2, {
         clearProps: "userSelect"
       });
       delete _lookup[target._gsDragID];
@@ -8879,80 +8879,42 @@ backdrop == null ? void 0 : backdrop.addEventListener("click", () => {
   container == null ? void 0 : container.setAttribute("aria-hidden", "true");
   backdrop == null ? void 0 : backdrop.classList.add("hidden");
 });
-class UrlModalSystem {
-  constructor() {
-    this.overlay = document.getElementById("modal-overlay");
-    this.currentModal = null;
-    this.init();
-  }
-  init() {
-    var _a;
-    this.checkHash();
-    window.addEventListener("hashchange", () => {
-      this.checkHash();
-    });
-    (_a = this.overlay) == null ? void 0 : _a.addEventListener("click", () => {
-      this.closeModal();
-    });
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") {
-        this.closeModal();
-      }
-    });
-    document.querySelectorAll(".modal-close").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        this.closeModal();
-      });
-    });
-  }
-  checkHash() {
-    const hash = window.location.hash;
-    if (hash && hash.startsWith("#modal-")) {
-      const modalId = hash.substring(1);
-      this.openModal(modalId);
-    } else {
-      this.closeAllModals();
-    }
-  }
-  openModal(modalId) {
-    var _a;
-    this.closeAllModals();
-    const modal = document.getElementById(modalId);
-    if (modal) {
-      this.currentModal = modal;
-      document.body.style.overflow = "hidden";
-      (_a = this.overlay) == null ? void 0 : _a.classList.add("active");
-      modal.classList.add("active");
-      const focusableElement = modal.querySelector(
-        "input, button, textarea, select, a[href]"
-      );
-      if (focusableElement) {
-        setTimeout(() => focusableElement.focus(), 100);
-      }
-    }
-  }
-  closeModal() {
-    if (window.location.hash) {
-      history.replaceState(
-        null,
-        "",
-        window.location.pathname + window.location.search
-      );
-    }
-    this.closeAllModals();
-  }
-  closeAllModals() {
-    var _a;
-    document.body.style.overflow = "auto";
-    (_a = this.overlay) == null ? void 0 : _a.classList.remove("active");
-    document.querySelectorAll(".modal.active").forEach((modal) => {
-      modal.classList.remove("active");
-    });
-    this.currentModal = null;
+const triggers = document.querySelectorAll(".js-modal-trigger");
+const overlay = document.querySelector(".overlay");
+const modal = document.getElementById("thankyou");
+function getScrollberWidth() {
+  return window.innerWidth - document.documentElement.clientWidth;
+}
+function setModalVisibility(visible) {
+  if (!modal || !overlay)
+    return;
+  modal.setAttribute("aria-hidden", visible ? "false" : "true");
+  overlay.setAttribute("aria-hidden", visible ? "false" : "true");
+  if (visible) {
+    const scrollberWidth = getScrollberWidth();
+    document.body.style.overflow = "hidden";
+    document.body.style.paddingRight = `${scrollberWidth}px`;
+  } else {
+    document.body.style.overflow = "";
+    document.body.style.paddingRight = "";
   }
 }
-document.addEventListener("DOMContentLoaded", () => {
-  new UrlModalSystem();
+triggers.forEach((trigger2) => {
+  trigger2.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (!modal || !overlay)
+      return;
+    const isOpen = modal.getAttribute("aria-hidden") === "false";
+    setModalVisibility(!isOpen);
+  });
+});
+overlay == null ? void 0 : overlay.addEventListener("click", (e) => {
+  if (e.target === overlay)
+    setModalVisibility(false);
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape")
+    setModalVisibility(false);
 });
 gsapWithCSS.config({
   nullTargetWarn: false
@@ -11041,15 +11003,15 @@ ScrollTrigger.removeEventListener = function(type, callback) {
 };
 ScrollTrigger.batch = function(targets, vars) {
   var result = [], varsCopy = {}, interval = vars.interval || 0.016, batchMax = vars.batchMax || 1e9, proxyCallback = function proxyCallback2(type, callback) {
-    var elements = [], triggers = [], delay = gsap.delayedCall(interval, function() {
-      callback(elements, triggers);
+    var elements = [], triggers2 = [], delay = gsap.delayedCall(interval, function() {
+      callback(elements, triggers2);
       elements = [];
-      triggers = [];
+      triggers2 = [];
     }).pause();
     return function(self) {
       elements.length || delay.restart(true);
       elements.push(self.trigger);
-      triggers.push(self);
+      triggers2.push(self);
       batchMax <= elements.length && delay.progress(1);
     };
   }, p;

@@ -10,20 +10,21 @@
 <div id="modal-overlay" class="
 <?php
 	cx(
+		'overlay',
 		'fixed inset-0 w-full h-full bg-black/50 z-[1000] transition-opacity duration-300 ease-[ease] opacity-0 pointer-events-none',
-		'[&.active]:opacity-100 [&.active]:pointer-events-auto'
+		'aria-[hidden=false]:opacity-100 aria-[hidden=false]:pointer-events-auto'
 	)
 	?>
-"></div>
-<div id="modal-info" class="
+" aria-hidden="true"></div>
+<div id="thankyou" class="
 <?php
 	cx(
 		'modal',
 		'fixed opacity-0 top-1/2 left-1/2 w-full max-w-752 max-h-[100vh] px-16 -translate-x-1/2 translate-y-[-60%] pointer-events-none z-[1001] transition-all duration-300 ease-[ease]',
-		'[&.active]:opacity-100 [&.active]:pointer-events-auto [&.active]:-translate-x-1/2 [&.active]:-translate-y-1/2',
+		'aria-[hidden=false]:opacity-100 aria-[hidden=false]:pointer-events-auto aria-[hidden=false]:-translate-x-1/2 aria-[hidden=false]:-translate-y-1/2',
 	)
 	?>
-" role="dialog" aria-labelledby="Thank you for Visiting">
+" role="dialog" aria-labelledby="Thank you for Visiting" aria-hidden="true">
 	<div class="
 	<?php
 		cx(
