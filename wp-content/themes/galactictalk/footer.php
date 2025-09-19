@@ -10,6 +10,10 @@
 
 </div>
 
+<?php
+get_template_part( 'parts/modal' );
+?>
+
 <footer class="
 	<?php
 	cx(
