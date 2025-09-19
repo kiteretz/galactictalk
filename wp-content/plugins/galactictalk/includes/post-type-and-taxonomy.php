@@ -242,6 +242,7 @@ add_action(
 );
 
 /**
- * Disable single page for testimonial post type
+ * Disable single page for testimonial, faq post type
  */
 add_filter( 'testimonial_rewrite_rules', '__return_empty_array' );
+add_filter( 'faq_rewrite_rules', '__return_empty_array' );

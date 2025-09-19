@@ -33,6 +33,16 @@ add_filter(
 );
 
 /**
+ * Add excerpt support to pages.
+ */
+add_action(
+	'init',
+	function () {
+		add_post_type_support( 'page', 'excerpt' );
+	}
+);
+
+/**
  * Set up theme defaults and registers support for various WordPress feaures.
  */
 add_action(

@@ -3,7 +3,7 @@
 		font-size: 4vw;
 	}
 
-	--header-height: 5.125rem;
+	--header-height: 3.5rem; /* 56px */
 	--cw: calc((100vw - var(--scrollbar-width, 0px)) / 100);
 	--gutter: clamp(1rem, 2.5 * var(--cw), 2rem);
 	--col-1: calc((100 * var(--cw) - var(--gutter) * 7) / 6);
@@ -19,8 +19,12 @@
 	--col-11: var(--col-6);
 	--col-12: var(--col-6);
 
+	@screen lg {
+		--header-height: 5.125rem; /* 82px */
+	}
+
 	@screen xl {
-		--header-height: 5.125rem;
+		/* --header-height: 5.125rem; */
 		--col-1: min((100 * var(--cw) - var(--gutter) * 13) / 12, 4rem);
 		--col-2: min(var(--col-1) * 2 + var(--gutter), 11rem);
 		--col-3: min(var(--col-1) * 3 + var(--gutter) * 2, 17.5rem);

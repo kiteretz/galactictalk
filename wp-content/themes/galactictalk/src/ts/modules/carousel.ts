@@ -164,3 +164,12 @@ document
       })
       .mount();
   });
+
+document.querySelectorAll<HTMLElement>('.js-service-carousel').forEach((el) => {
+  new Splide(el, {
+    gap: '1rem',
+    speed: 1000,
+    autoplay: true,
+    updateOnMove: true,
+  }).mount();
+});
