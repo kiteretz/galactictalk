@@ -30,7 +30,7 @@ document.querySelectorAll('.js-staggered').forEach((el) => {
     ease: 'back.out(2)',
     scrollTrigger: {
       trigger: el,
-      start: 'top 70%',
+      start: 'top 80%',
     },
   });
 });
@@ -43,7 +43,7 @@ document.querySelectorAll('.js-bounce-in').forEach((el) => {
     ease: 'back.out(2)',
     scrollTrigger: {
       trigger: el,
-      start: 'top 70%',
+      start: 'top 80%',
     },
   });
 });
@@ -59,7 +59,7 @@ document.querySelectorAll('.js-draggable-course').forEach((el) => {
       ease: 'back.out(2)',
       scrollTrigger: {
         trigger: el,
-        start: 'top 70%',
+        start: 'top 80%',
       },
     });
 
@@ -72,11 +72,12 @@ document.querySelectorAll('.js-draggable-course').forEach((el) => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: document.querySelector('.js-course-carousel'),
-        start: 'top 60%',
+        start: 'top 70%',
       },
     });
     tl.from(el, {
       rotate: 60,
+      opacity: 0,
       duration: 1,
       ease: 'power3.out',
       onComplete: checkAnchorsVisibility,
@@ -106,7 +107,7 @@ document.querySelectorAll('.js-split-text').forEach((el) => {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: el,
-      start: 'top 70%',
+      start: 'top 80%',
     },
   });
 
@@ -117,7 +118,7 @@ document.querySelectorAll('.js-split-text').forEach((el) => {
     ease: 'power3.out',
     scrollTrigger: {
       trigger: el,
-      start: 'top 70%',
+      start: 'top 80%',
     },
   });
 

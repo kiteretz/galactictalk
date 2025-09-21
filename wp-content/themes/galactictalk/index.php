@@ -280,7 +280,7 @@ get_header();
 				<!-- Images -->
 				<div class="pointer-events-none grid h-full w-full max-w-480 mx-auto [&>*]:col-span-full [&>*]:row-span-full">
 					<!-- Arched images -->
-					<div class="js-staggered grid grid-cols-2 place-items-center px-18 ~/md:~-translate-y-172/360 md:~/lg:~-translate-y-200/240 ~/lg:~gap-10/24 lg:translate-y-112">
+					<div class="js-staggered grid grid-cols-2 place-items-center px-18 relative ~/md:~-top-172/360 md:~/lg:~-top-200/240 ~/lg:~gap-10/24 lg:top-112">
 						<?php
 						foreach ( array(
 							array(
@@ -315,7 +315,7 @@ get_header();
 						<?php endforeach; ?>
 					</div>
 					<!-- Headphone and crystals -->
-					<div class="js-staggered hidden lg:grid place-items-center lg:translate-y-136">
+					<div class="js-staggered hidden lg:grid place-items-center relative lg:top-136">
 						<?php
 						foreach ( array(
 							array(
