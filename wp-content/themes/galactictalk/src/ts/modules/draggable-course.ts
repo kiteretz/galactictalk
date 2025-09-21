@@ -1,7 +1,8 @@
 import { gsap } from 'gsap';
 import { Draggable } from 'gsap/Draggable';
+import { InertiaPlugin } from 'gsap/InertiaPlugin';
 
-gsap.registerPlugin(Draggable);
+gsap.registerPlugin(Draggable, InertiaPlugin);
 
 const draggableEl = document.querySelector<HTMLDivElement>(
   '.js-draggable-course',
@@ -41,16 +42,11 @@ const draggableCourse = () => {
 
   const draggable = Draggable.create(draggableEl, {
     type: 'rotation',
+    inertia: true,
     trigger: draggableEl.parentElement,
     minimumMovement: 0.1,
-    onDragEnd: function () {
-      // Snap rotation by 6 degrees
-      const roundedRotation = Math.round(this.rotation / 6) * 6;
-      gsap.to(draggableEl, {
-        rotation: roundedRotation,
-        duration: 0.3,
-        onComplete: checkAnchorsVisibility,
-      });
+    snap: function (value) {
+      return Math.round(value / 6) * 6;
     },
   });
 
