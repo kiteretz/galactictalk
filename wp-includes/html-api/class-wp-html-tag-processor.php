@@ -1668,7 +1668,7 @@ class WP_HTML_Tag_Processor {
 				 *
 				 * @see https://html.spec.whatwg.org/#tag-open-state
 				 */
-				if ( 1 !== strspn( $html, '!/?abcdefghijklmnopqrstuvwxyzABCEFGHIJKLMNOPQRSTUVWXYZ', $at + 1, 1 ) ) {
+				if ( 1 !== strspn( $html, '!/?abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', $at + 1, 1 ) ) {
 					++$at;
 					continue;
 				}
@@ -3697,7 +3697,7 @@ class WP_HTML_Tag_Processor {
 			self::COMMENT_AS_HTML_COMMENT === $this->comment_type
 		) {
 			// Check if the text could close the comment.
-			if ( 1 === preg_match( '/--!?>/', $plaintext_content ) ) {
+			if ( 1 === preg_match( '/^-?>|--!?>/', $plaintext_content ) ) {
 				return false;
 			}
 
@@ -4555,4 +4555,13 @@ class WP_HTML_Tag_Processor {
 	 * @since 6.7.0
 	 */
 	const TEXT_IS_WHITESPACE = 'TEXT_IS_WHITESPACE';
+
+	/**
+	 * Wakeup magic method.
+	 *
+	 * @since 6.9.2
+	 */
+	public function __wakeup() {
+		throw new \LogicException( __CLASS__ . ' should never be unserialized' );
+	}
 }

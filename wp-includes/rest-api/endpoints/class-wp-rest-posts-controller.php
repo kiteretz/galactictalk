@@ -346,7 +346,7 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 
 		$args = $this->prepare_tax_query( $args, $request );
 
-		if ( ! empty( $request['format'] ) ) {
+		if ( isset( $registered['format'], $request['format'] ) ) {
 			$formats = $request['format'];
 			/*
 			 * The relation needs to be set to `OR` since the request can contain
@@ -444,7 +444,13 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 		}
 
 		foreach ( $query_result as $post ) {
-			if ( ! $this->check_read_permission( $post ) ) {
+			if ( 'edit' === $request['context'] ) {
+				$permission = $this->check_update_permission( $post );
+			} else {
+				$permission = $this->check_read_permission( $post );
+			}
+
+			if ( ! $permission ) {
 				continue;
 			}
 
